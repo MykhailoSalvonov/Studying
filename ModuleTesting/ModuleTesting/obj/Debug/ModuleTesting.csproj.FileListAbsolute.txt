@@ -1,0 +1,6 @@
+D:\Git\Studying\ModuleTesting\ModuleTesting\bin\Debug\ModuleTesting.dll
+D:\Git\Studying\ModuleTesting\ModuleTesting\bin\Debug\ModuleTesting.pdb
+D:\Git\Studying\ModuleTesting\ModuleTesting\obj\Debug\ModuleTesting.csproj.AssemblyReference.cache
+D:\Git\Studying\ModuleTesting\ModuleTesting\obj\Debug\ModuleTesting.csproj.CoreCompileInputs.cache
+D:\Git\Studying\ModuleTesting\ModuleTesting\obj\Debug\ModuleTesting.dll
+D:\Git\Studying\ModuleTesting\ModuleTesting\obj\Debug\ModuleTesting.pdb
