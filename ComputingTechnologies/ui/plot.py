@@ -33,3 +33,13 @@ def show_subplots(zip_data_1, zip_data_2):
         # Відображення графіків
         plt.tight_layout()
         plt.show()
+
+
+def plot_multiple_data(*y_data, x_label="X-Axis", y_label="Y-Axis", title="Графік"):
+    for data in y_data:
+        plt.plot(*zip(*data), marker='o', linestyle='-')
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.title(title)
+    plt.legend(range(1, len(y_data) + 1), title="Набір даних")
+    plt.show()

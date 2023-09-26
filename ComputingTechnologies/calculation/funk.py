@@ -1,51 +1,71 @@
 import numpy as np
 
 
-def calculate(points, r, u, dots_amount):
+def calculate(points, r=2, u=0, dots_amount=10, need_extrapolation=True):
     if len(points) < 3:
         return None
+
+    if u < 0 or u > 3:
+        raise ValueError("Параметер u мусить дорівнювати 0, 1, 2 або 3.")
+
+    if r > 3 or r < 1:
+        raise ValueError("Параметер r мусить дорівнювати 1, 2 або 3.")
+
     f = []
+    t_step = points[1][0] - points[0][0];
+    x_values_temp = split_interval(-1, 1, dots_amount)
 
     for index, point in enumerate(points):
-#        if index == 0:
-#            start_point = get_extrapolation_point(points, 2 * point[0] - points[index+1][0], u)
-#        elif index >= len(points)-1:
-#            start_point = get_extrapolation_point(points, x_new1, u)
-
-        x_values = split_interval(-1, 1, dots_amount)
-
         if r % 2 == 0:
-            new_t = split_interval((points[index-1][0] + point[0])/2, (point[0] + points[index+1][0])/2, dots_amount)
+            new_t_temp = split_interval((2 * point[0] - t_step) / 2, (2 * point[0] + t_step) / 2, dots_amount)
         else:
-            new_t = split_interval(points[0], points[index+1][0], dots_amount)
+            new_t_temp = split_interval(point[0], point[0] + t_step, dots_amount)
+
+        new_t = [x for x in new_t_temp if points[0][0] <= x <= points[len(points) - 1][0]]
+        start_index = new_t_temp.index(new_t[0])
+        x_values = x_values_temp[start_index:start_index + len(new_t)]
 
         for index_t, x in enumerate(x_values):
-            f.append([new_t[index_t],
-                      splice_20(points[index-1][1], point[1], points[index+1][1], x)])
+            if r == 2:
+                if u == 0:
+                    p_t = splice_20(x, points, point, index, t_step, need_extrapolation)
+                if u == 1:
+                    p_t = splice_21(x, points, point, index, t_step, need_extrapolation)
+                if u == 2:
+                    p_t = splice_22(x, points, point, index, t_step, need_extrapolation)
+            elif r == 3:
+                if u == 0:
+                    p_t = splice_30(x, points, point, index, t_step, need_extrapolation)
+                if u == 1:
+                    p_t = splice_31(x, points, point, index, t_step, need_extrapolation)
+                if u == 2:
+                    p_t = splice_32(x, points, point, index, t_step, need_extrapolation)
 
+            if p_t is None:
+                continue
+            else:
+                f.append([new_t[index_t], p_t])
     return f
 
 
 def get_extrapolation_point(data, x_new1, degree=2):
-    # degree - Ступінь полінома (2 для квадратичного)
-    if degree > 3 or degree < 1:
-        raise ValueError("Параметер degree мусить дорівнювати 1, 2 або 3.")
-
     x = np.array([item[0] for item in data])
     y = np.array([item[1] for item in data])
 
     coefficients = np.polyfit(x, y, degree)
-    a, b, c, d = coefficients
 
     x_new = x_new1
     if degree == 1:
+        a, b = coefficients
         y_new = a * x_new + b
 
     if degree == 2:
+        a, b, c = coefficients
         y_new = a * x_new ** 2 + b * x_new + c
 
     if degree == 3:
-        y_new = a * x_new ** 3 + b * x_new ** 2 + c * x + d
+        a, b, c, d = coefficients
+        y_new = a * x_new ** 3 + b * x_new ** 2 + c * x_new + d
 
     return y_new
 
@@ -59,24 +79,108 @@ def split_interval(a, b, n):
     return points
 
 
-def splice_20(p_1, p, p1, x):
+def splice_20(x, points, current_point, current_index, t_step, need_extrapolation):
+    if current_index == 0 or current_index == len(points)-1:
+        if need_extrapolation:
+            p_1 = get_extrapolation_point(points, current_point[0] - t_step, 2) if current_index == 0 \
+                else points[current_index - 1][1]
+            p1 = get_extrapolation_point(points, current_point[0] + t_step, 2) if current_index == len(points)-1 \
+                else points[current_index + 1][1]
+        else:
+            return None
+    else:
+        p_1 = points[current_index - 1][1]
+        p1 = points[current_index + 1][1]
+
+    p = current_point[1]
+
     return 1 / 8 * ((p_1 + 6 * p + p1) + 2 * (-p_1 + p1) * x + (p_1 - 2 * p + p1) * x ** 2)
 
 
-def splice_21(p_2, p_1, p, p1, p2, x):
+def splice_21(x, points, current_point, current_index, t_step, need_extrapolation):
+    if current_index <= 2 or current_index >= len(points)-2:
+        if need_extrapolation:
+            p_2 = get_extrapolation_point(points, current_point[0] - 2 * t_step, 2) if current_index <= 1 \
+                else points[current_index - 2][1]
+            p_1 = get_extrapolation_point(points, current_point[0] - t_step, 2) if current_index == 0 \
+                else points[current_index - 1][1]
+            p1 = get_extrapolation_point(points, current_point[0] + t_step, 2) if current_index == len(points)-1 \
+                else points[current_index + 1][1]
+            p2 = get_extrapolation_point(points, current_point[0] + 2 * t_step, 2) if current_index >= len(points)-2 \
+                else points[current_index + 2][1]
+        else:
+            return None
+    else:
+        p_2 = points[current_index - 2][1]
+        p_1 = points[current_index - 1][1]
+        p1 = points[current_index + 1][1]
+        p2 = points[current_index + 2][1]
+
+    p = current_point[1]
+
     return 1 / 48 * (- p_2 + 10 * p_1 - 18 * p + 10 * p1 - p2) * x ** 2 + \
         1 / 24 * (p_2 - 8 * p_1 + 8 * p1 - p2) * x + \
         1 / 48 * (- p_2 + 2 * p_1 + 46 * p + 2 * p1 - p2)
 
 
-def splice_22(p_3, p_2, p_1, p, p1, p2, p3, x):
+def splice_22(x, points, current_point, current_index, t_step, need_extrapolation):
+    if current_index <= 3 or current_index >= len(points)-3:
+        if need_extrapolation:
+            p_3 = get_extrapolation_point(points, current_point[0] - 3 * t_step, 2) if current_index <= 2 \
+                else points[current_index - 1][1]
+            p_2 = get_extrapolation_point(points, current_point[0] - 2 * t_step, 2) if current_index <= 1 \
+                else points[current_index - 2][1]
+            p_1 = get_extrapolation_point(points, current_point[0] - t_step, 2) if current_index == 0 \
+                else points[current_index - 1][1]
+            p1 = get_extrapolation_point(points, current_point[0] + t_step, 2) if current_index == len(points)-1 \
+                else points[current_index + 1][1]
+            p2 = get_extrapolation_point(points, current_point[0] + 2 * t_step, 2) if current_index >= len(points)-2 \
+                else points[current_index + 2][1]
+            p3 = get_extrapolation_point(points, current_point[0] + 3 * t_step, 2) if current_index >= len(points)-3 \
+                else points[current_index + 2][1]
+        else:
+            return None
+    else:
+        p_3 = points[current_index - 3][1]
+        p_2 = points[current_index - 2][1]
+        p_1 = points[current_index - 1][1]
+        p1 = points[current_index + 1][1]
+        p2 = points[current_index + 2][1]
+        p3 = points[current_index + 3][1]
+
+    p = current_point[1]
+
     return 1 / 288 * (p_3 - 12 * p_2 + 75 * p_1 - 128 * p + 75 * p1 - 12 * p2 + p3) * x ** 2 + \
         1 / 144 * (- p_3 + 10 * p_2 - 53 * p_1 + 53 * p1 - 10 * p2 + p3) * x + \
         1 / 288 * (p_3 - 4 * p_2 - 5 * p_1 + 304 * p - 5 * p1 - 4 * p2 + p3)
 
 
-def splice_30(p_1, p, p1, p2, x):
+def splice_30(x, points, current_point, current_index, t_step, need_extrapolation):
+    if current_index == 0 or current_index >= len(points)-2:
+        if need_extrapolation:
+            p_1 = get_extrapolation_point(points, current_point[0] - t_step, 2) if current_index == 0 \
+                else points[current_index - 1][1]
+            p1 = get_extrapolation_point(points, current_point[0] + t_step, 2) if current_index == len(points)-1 \
+                else points[current_index + 1][1]
+            p2 = get_extrapolation_point(points, current_point[0] + 2 * t_step, 2) if current_index >= len(points)-2 \
+                else points[current_index + 2][1]
+        else:
+            return None
+    else:
+        p_1 = points[current_index - 1][1]
+        p1 = points[current_index + 1][1]
+        p2 = points[current_index + 2][1]
+
+    p = current_point[1]
+
     return 1 / 48 * (- p_1 + 3 * p - 3 * p1 + p2) * x ** 3 + \
         1 / 16 * (p_1 - p - p1 + p2) * x ** 2 + \
         1 / 16 * (- p_1 - 5 * p + 5 * p1 + p2) * x + \
         1 / 48 * (p_1 + 23 * p + 23 * p1 + p2)
+
+def splice_31(x, points, current_point, current_index, t_step, need_extrapolation):
+    return None
+
+def splice_32(x, points, current_point, current_index, t_step, need_extrapolation):
+    return None
+

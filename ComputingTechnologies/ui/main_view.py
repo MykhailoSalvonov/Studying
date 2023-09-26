@@ -60,6 +60,7 @@ def clear():
 
 def on_combobox_select(event):
     global task
+    #global show_all_splines
 
     selected_item = combobox.get()
     task = my_task_dict[selected_item]
@@ -71,10 +72,21 @@ def on_combobox_select(event):
 
     clear()
 
+#    if selected_item == 'Практична робота №3':
+#        show_all_splines = tk.Checkbutton(button_frame, text="Усі В-сплайни")
+#        show_all_splines.grid(row=0, column=4, sticky=tk.W + tk.E, padx=10, pady=10)
+#        button_frame.pack(fill='x')
+#    else:
+#        try:
+#            show_all_splines
+#        except NameError:
+#            pass
+#        else:
+#            show_all_splines.destroy()
 
 def show():
     root.title("Графік F(t)")
-    root.geometry("400x600")
+    root.geometry("600x600")
 
     combobox.pack(padx=10, pady=10)
 
