@@ -139,6 +139,7 @@ my_task_dict = {
     'Практична робота №1': tasks.TaskOne(),
     'Практична робота №2': tasks.TaskTwo(),
     'Практична робота №3': tasks.TaskThree(),
+    'Практична робота №4': tasks.TaskFour(),
 }
 
 add_button = tk.Button(button_frame, text="Додати точку", command=add_empty_point)

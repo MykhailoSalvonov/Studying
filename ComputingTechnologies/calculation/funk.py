@@ -1,5 +1,5 @@
 import numpy as np
-
+import random
 
 def calculate(points, r=2, u=0, dots_amount=10, need_extrapolation=True):
     if len(points) < 3:
@@ -178,9 +178,61 @@ def splice_30(x, points, current_point, current_index, t_step, need_extrapolatio
         1 / 16 * (- p_1 - 5 * p + 5 * p1 + p2) * x + \
         1 / 48 * (p_1 + 23 * p + 23 * p1 + p2)
 
+
 def splice_31(x, points, current_point, current_index, t_step, need_extrapolation):
     return None
 
+
 def splice_32(x, points, current_point, current_index, t_step, need_extrapolation):
     return None
+
+
+def generate_random_points(t1, t2, a, b, c, num_points):
+    points = []
+
+    intervals = [(t1, t1 + 1), (t1 + 1, t2 - 1), (t2 - 1, t2)]
+    interval_probs = [0.2, 0.6, 0.2]
+
+    for _ in range(num_points):
+        chosen_interval = random.choices(intervals, interval_probs)[0]
+        x = random.uniform(chosen_interval[0], chosen_interval[1])
+
+        e = random.uniform(-2, 2)
+        #y = a * x ** 2 + b * x + c + e
+        y = x ** 2
+
+        points.append([x, y])
+
+    points.sort(key=lambda point: point[0])
+    return points
+
+
+def get_approximate_points(base_points, intervals):
+    t_min = min(base_points, key=lambda point: point[0])[0]
+    t_max = max(base_points, key=lambda point: point[0])[0]
+
+    points = []
+
+    for k in range(intervals+1):
+        previous_y = 0
+
+        for i in range(10):
+            t_begin = t_min + i * (t_max - t_min) / 2 ** k
+            t_end = t_min + (1 + i) * (t_max - t_min) / 2 ** k
+
+            if t_end>t_max:
+                break
+
+            y_points = [point[1] for point in base_points if t_begin <= point[0] <= t_end]
+
+            if len(y_points) == 0:
+                y = previous_y
+            else:
+                y = sum(y_points)/len(y_points)
+                previous_y = y
+
+            points.append([(t_begin+t_end)/2, y])
+
+    points.sort(key=lambda point: point[0])
+    return points
 
