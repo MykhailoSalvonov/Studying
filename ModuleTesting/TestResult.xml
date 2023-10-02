@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="0" runstate="Runnable" testcasecount="10" result="Passed" total="10" passed="10" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="10" engine-version="3.16.3.0" clr-version="4.0.30319.42000" start-time="2023-09-29 12:20:59Z" end-time="2023-09-29 12:20:59Z" duration="0.642371">
+  <command-line><![CDATA["Packages\nunit.consolerunner\3.16.3\tools\nunit3-console.exe"  "UnitTestsLab1\\bin\\Debug\\net6.0\\UnitTestsLab1.dll"]]></command-line>
+  <test-suite type="Assembly" id="1-1014" name="UnitTestsLab1.dll" fullname="D:/Git/Studying/ModuleTesting/UnitTestsLab1/bin/Debug/net6.0/UnitTestsLab1.dll" runstate="Runnable" testcasecount="10" result="Passed" start-time="2023-09-29T12:20:59.7490580Z" end-time="2023-09-29T12:20:59.7882829Z" duration="0.039096" total="10" passed="10" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="10">
+    <environment framework-version="3.13.3.0" clr-version="6.0.13" os-version="Microsoft Windows 10.0.19045" platform="Win32NT" cwd="D:\Git\Studying\ModuleTesting" machine-name="DESKTOP-R9EGKQO" user="Mykhailo" user-domain="DESKTOP-R9EGKQO" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="D:\Git\Studying\ModuleTesting" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETCoreApp,Version=v6.0" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="TargetRuntimeFramework" value="netcore-6.0" />
+      <setting name="NumberOfTestWorkers" value="4" />
+    </settings>
+    <properties>
+      <property name="_PID" value="11780" />
+      <property name="_APPDOMAIN" value="nunit-agent" />
+    </properties>
+    <test-suite type="TestSuite" id="1-1015" name="UnitTestsLab1" fullname="UnitTestsLab1" runstate="Runnable" testcasecount="10" result="Passed" start-time="2023-09-29T12:20:59.7548255Z" end-time="2023-09-29T12:20:59.7882786Z" duration="0.033453" total="10" passed="10" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="10">
+      <test-suite type="TestSuite" id="1-1016" name="UnitTests" fullname="UnitTestsLab1.UnitTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2023-09-29T12:20:59.7551273Z" end-time="2023-09-29T12:20:59.7882744Z" duration="0.033147" total="10" passed="10" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="10">
+        <test-suite type="TestFixture" id="1-1000" name="EquilateralTriangleUnitTest" fullname="UnitTestsLab1.UnitTests.EquilateralTriangleUnitTest" classname="UnitTestsLab1.UnitTests.EquilateralTriangleUnitTest" runstate="Runnable" testcasecount="2" result="Passed" start-time="2023-09-29T12:20:59.7564577Z" end-time="2023-09-29T12:20:59.7842160Z" duration="0.027758" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+          <test-case id="1-1002" name="EquilateralTriangleWithZeroSides" fullname="UnitTestsLab1.UnitTests.EquilateralTriangleUnitTest.EquilateralTriangleWithZeroSides" methodname="EquilateralTriangleWithZeroSides" classname="UnitTestsLab1.UnitTests.EquilateralTriangleUnitTest" runstate="Runnable" seed="1643576199" result="Passed" start-time="2023-09-29T12:20:59.7590270Z" end-time="2023-09-29T12:20:59.7702905Z" duration="0.011358" asserts="1" />
+          <test-case id="1-1001" name="IsEquilateralTriang" fullname="UnitTestsLab1.UnitTests.EquilateralTriangleUnitTest.IsEquilateralTriang" methodname="IsEquilateralTriang" classname="UnitTestsLab1.UnitTests.EquilateralTriangleUnitTest" runstate="Runnable" seed="789745008" result="Passed" start-time="2023-09-29T12:20:59.7722070Z" end-time="2023-09-29T12:20:59.7831597Z" duration="0.010953" asserts="1" />
+        </test-suite>
+        <test-suite type="TestFixture" id="1-1003" name="IncorrectTriangleUnitTest" fullname="UnitTestsLab1.UnitTests.IncorrectTriangleUnitTest" classname="UnitTestsLab1.UnitTests.IncorrectTriangleUnitTest" runstate="Runnable" testcasecount="3" result="Passed" start-time="2023-09-29T12:20:59.7858043Z" end-time="2023-09-29T12:20:59.7869954Z" duration="0.001191" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="3">
+          <test-case id="1-1006" name="TriangleWithNegativeSide" fullname="UnitTestsLab1.UnitTests.IncorrectTriangleUnitTest.TriangleWithNegativeSide" methodname="TriangleWithNegativeSide" classname="UnitTestsLab1.UnitTests.IncorrectTriangleUnitTest" runstate="Runnable" seed="2051066361" result="Passed" start-time="2023-09-29T12:20:59.7859360Z" end-time="2023-09-29T12:20:59.7863910Z" duration="0.000455" asserts="1" />
+          <test-case id="1-1005" name="TriangleWithSideMuchBiggerThenOther" fullname="UnitTestsLab1.UnitTests.IncorrectTriangleUnitTest.TriangleWithSideMuchBiggerThenOther" methodname="TriangleWithSideMuchBiggerThenOther" classname="UnitTestsLab1.UnitTests.IncorrectTriangleUnitTest" runstate="Runnable" seed="693897531" result="Passed" start-time="2023-09-29T12:20:59.7864183Z" end-time="2023-09-29T12:20:59.7866638Z" duration="0.000246" asserts="1" />
+          <test-case id="1-1004" name="TriangleWithZeroSide" fullname="UnitTestsLab1.UnitTests.IncorrectTriangleUnitTest.TriangleWithZeroSide" methodname="TriangleWithZeroSide" classname="UnitTestsLab1.UnitTests.IncorrectTriangleUnitTest" runstate="Runnable" seed="780211685" result="Passed" start-time="2023-09-29T12:20:59.7866798Z" end-time="2023-09-29T12:20:59.7869559Z" duration="0.000276" asserts="1" />
+        </test-suite>
+        <test-suite type="TestFixture" id="1-1007" name="IsoscelesTriangleUnitTest" fullname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest" classname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest" runstate="Runnable" testcasecount="4" result="Passed" start-time="2023-09-29T12:20:59.7870297Z" end-time="2023-09-29T12:20:59.7879902Z" duration="0.000960" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
+          <test-case id="1-1008" name="IsIsoscelesTriang_1" fullname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest.IsIsoscelesTriang_1" methodname="IsIsoscelesTriang_1" classname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest" runstate="Runnable" seed="922523406" result="Passed" start-time="2023-09-29T12:20:59.7871091Z" end-time="2023-09-29T12:20:59.7873058Z" duration="0.000197" asserts="1" />
+          <test-case id="1-1009" name="IsIsoscelesTriang_2" fullname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest.IsIsoscelesTriang_2" methodname="IsIsoscelesTriang_2" classname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest" runstate="Runnable" seed="175296034" result="Passed" start-time="2023-09-29T12:20:59.7873180Z" end-time="2023-09-29T12:20:59.7874700Z" duration="0.000152" asserts="1" />
+          <test-case id="1-1010" name="IsIsoscelesTriang_3" fullname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest.IsIsoscelesTriang_3" methodname="IsIsoscelesTriang_3" classname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest" runstate="Runnable" seed="1248624319" result="Passed" start-time="2023-09-29T12:20:59.7874807Z" end-time="2023-09-29T12:20:59.7876124Z" duration="0.000132" asserts="1" />
+          <test-case id="1-1011" name="IsoscelesTriangleWithZeroSides" fullname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest.IsoscelesTriangleWithZeroSides" methodname="IsoscelesTriangleWithZeroSides" classname="UnitTestsLab1.UnitTests.IsoscelesTriangleUnitTest" runstate="Runnable" seed="839169738" result="Passed" start-time="2023-09-29T12:20:59.7876229Z" end-time="2023-09-29T12:20:59.7879668Z" duration="0.000344" asserts="1" />
+        </test-suite>
+        <test-suite type="TestFixture" id="1-1012" name="Tests" fullname="UnitTestsLab1.UnitTests.Tests" classname="UnitTestsLab1.UnitTests.Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2023-09-29T12:20:59.7880199Z" end-time="2023-09-29T12:20:59.7882674Z" duration="0.000248" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
+          <test-case id="1-1013" name="IsScaleneTriang" fullname="UnitTestsLab1.UnitTests.Tests.IsScaleneTriang" methodname="IsScaleneTriang" classname="UnitTestsLab1.UnitTests.Tests" runstate="Runnable" seed="1769539519" result="Passed" start-time="2023-09-29T12:20:59.7881081Z" end-time="2023-09-29T12:20:59.7882525Z" duration="0.000145" asserts="1" />
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
