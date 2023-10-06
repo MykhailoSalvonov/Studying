@@ -197,9 +197,8 @@ def generate_random_points(t1, t2, a, b, c, num_points):
         chosen_interval = random.choices(intervals, interval_probs)[0]
         x = random.uniform(chosen_interval[0], chosen_interval[1])
 
-        e = random.uniform(-2, 2)
-        #y = a * x ** 2 + b * x + c + e
-        y = x ** 2
+        e = random.uniform(-5, 5)
+        y = a * x ** 2 + b * x + c + e
 
         points.append([x, y])
 
@@ -207,21 +206,22 @@ def generate_random_points(t1, t2, a, b, c, num_points):
     return points
 
 
-def get_approximate_points(base_points, intervals):
+def get_approximate_points(base_points):
     t_min = min(base_points, key=lambda point: point[0])[0]
     t_max = max(base_points, key=lambda point: point[0])[0]
 
+    m = len(base_points)
+    k = int(m ** (1 / 2)) if m < 100 else int(m ** (1 / 3))
+
     points = []
 
-    for k in range(intervals+1):
+    for k_temp in range(k):
         previous_y = 0
+        temp_points = []
 
-        for i in range(10):
-            t_begin = t_min + i * (t_max - t_min) / 2 ** k
-            t_end = t_min + (1 + i) * (t_max - t_min) / 2 ** k
-
-            if t_end>t_max:
-                break
+        for i in range(2 ** k_temp - 1):
+            t_begin = t_min + i * (t_max - t_min) / 2 ** k_temp
+            t_end = t_min + (1 + i) * (t_max - t_min) / 2 ** k_temp
 
             y_points = [point[1] for point in base_points if t_begin <= point[0] <= t_end]
 
@@ -231,8 +231,18 @@ def get_approximate_points(base_points, intervals):
                 y = sum(y_points)/len(y_points)
                 previous_y = y
 
-            points.append([(t_begin+t_end)/2, y])
+            if k-1 == k_temp:
+                points.append([(t_begin+t_end)/2, y])
+            else:
+                temp_points.append([(t_begin+t_end)/2, y])
 
-    points.sort(key=lambda point: point[0])
+    for index, point in enumerate(points):
+        if index == 0:
+            points[index][1] = 1 / 2 * (point[1] + points[index + 1][1])
+        elif 0 < index < len(points) - 1:
+            points[index][1] = 1 / 3 * (points[index - 1][1] + point[1] + points[index + 1][1])
+        else:
+            points[index][1] = 1 / 2 * (points[index - 1][1] + point[1])
+
     return points
 
