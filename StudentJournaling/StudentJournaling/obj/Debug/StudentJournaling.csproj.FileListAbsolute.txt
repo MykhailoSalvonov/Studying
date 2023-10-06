@@ -1,0 +1,13 @@
+D:\Git\Studying\StudentJournaling\StudentJournaling\bin\Debug\StudentJournaling.exe.config
+D:\Git\Studying\StudentJournaling\StudentJournaling\bin\Debug\StudentJournaling.exe
+D:\Git\Studying\StudentJournaling\StudentJournaling\bin\Debug\StudentJournaling.pdb
+D:\Git\Studying\StudentJournaling\StudentJournaling\bin\Debug\System.Data.SQLite.dll
+D:\Git\Studying\StudentJournaling\StudentJournaling\bin\Debug\System.Data.SQLite.xml
+D:\Git\Studying\StudentJournaling\StudentJournaling\obj\Debug\StudentJournaling.csproj.AssemblyReference.cache
+D:\Git\Studying\StudentJournaling\StudentJournaling\obj\Debug\StudentJournaling.Form1.resources
+D:\Git\Studying\StudentJournaling\StudentJournaling\obj\Debug\StudentJournaling.Properties.Resources.resources
+D:\Git\Studying\StudentJournaling\StudentJournaling\obj\Debug\StudentJournaling.csproj.GenerateResource.cache
+D:\Git\Studying\StudentJournaling\StudentJournaling\obj\Debug\StudentJournaling.csproj.CoreCompileInputs.cache
+D:\Git\Studying\StudentJournaling\StudentJournaling\obj\Debug\StudentJournaling.csproj.CopyComplete
+D:\Git\Studying\StudentJournaling\StudentJournaling\obj\Debug\StudentJournaling.exe
+D:\Git\Studying\StudentJournaling\StudentJournaling\obj\Debug\StudentJournaling.pdb

@@ -1,0 +1,34 @@
+# Всі файли тимчасових даних MATLAB
+*.mat
+
+# Всі файли компіляції C# і файли, пов'язані з проектами Visual Studio
+bin/
+obj/
+.vscode/
+.vs/
+*.suo
+*.user
+*.sln
+*.csproj
+*.csproj.user
+*.suo
+*.userprefs
+*.pidb
+*.pdb
+
+# Всі файли середовища віртуального середовища Python (наприклад, virtualenv або venv)
+venv/
+__pycache__/
+
+# Всі файли байткоду Python та файли кешу Python
+*.pyc
+__pycache__/
+
+# Всі файли журналу Python
+*.log
+
+# Локальна конфігурація MATLAB
+.matlab
+simulink/
+slprj/
+*.slx
