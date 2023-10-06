@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleTesting", "ModuleTesting\ModuleTesting.csproj", "{8430A564-80ED-4FF9-90DE-F9B6DCCB0B2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestsLab1", "UnitTestsLab1\UnitTestsLab1.csproj", "{5624456E-49BC-4DA1-88AF-C4A15B8EFFF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestsLab1", "UnitTestsLab1\UnitTestsLab1.csproj", "{5624456E-49BC-4DA1-88AF-C4A15B8EFFF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
