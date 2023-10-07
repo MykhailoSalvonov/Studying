@@ -55,7 +55,7 @@ class TaskFour(abstract_task.Task):
         random_points = funk.generate_random_points(t1, t2, a, b, c, num_points)
 
         aproximated_points = funk.get_approximate_points(random_points)
-        calculated_data_20 = funk.calculate(aproximated_points, 2, 0, 10, True)
+        calculated_data_20 = funk.calculate(aproximated_points, 2, 0, 5, True)
         plot.plot_multiple_data(random_points, aproximated_points, calculated_data_20)
 
     def getExampleData(self):
