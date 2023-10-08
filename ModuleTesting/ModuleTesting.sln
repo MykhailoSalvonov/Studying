@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleTesting", "ModuleTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestsLab1", "UnitTestsLab1\UnitTestsLab1.csproj", "{5624456E-49BC-4DA1-88AF-C4A15B8EFFF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleBuilder", "Triangle\TriangleBuilder.csproj", "{4252BE19-B5BB-4084-926B-66DF67EBBE04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriangleBuilder", "Triangle\TriangleBuilder.csproj", "{4252BE19-B5BB-4084-926B-66DF67EBBE04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

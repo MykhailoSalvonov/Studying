@@ -28,121 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.resultLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            this.SuspendLayout();
+            numericUpDown1 = new NumericUpDown();
+            numericUpDown2 = new NumericUpDown();
+            numericUpDown3 = new NumericUpDown();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            button1 = new Button();
+            resultLabel = new Label();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            SuspendLayout();
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(214, 79);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown1.TabIndex = 0;
+            numericUpDown1.Location = new Point(214, 79);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(120, 23);
+            numericUpDown1.TabIndex = 0;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(214, 134);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown2.TabIndex = 1;
+            numericUpDown2.Location = new Point(214, 134);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(120, 23);
+            numericUpDown2.TabIndex = 1;
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(214, 195);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown3.TabIndex = 2;
+            numericUpDown3.Location = new Point(214, 195);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(120, 23);
+            numericUpDown3.TabIndex = 2;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Введіть довжини сторін трикутника";
+            label1.AutoSize = true;
+            label1.Location = new Point(133, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(201, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Введіть довжини сторін трикутника";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(138, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Сторона А:";
+            label2.AutoSize = true;
+            label2.Location = new Point(138, 83);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Сторона А:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(138, 203);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Сторона С:";
+            label3.AutoSize = true;
+            label3.Location = new Point(138, 203);
+            label3.Name = "label3";
+            label3.Size = new Size(68, 15);
+            label3.TabIndex = 5;
+            label3.Text = "Сторона С:";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(138, 142);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Сторона В:";
+            label4.AutoSize = true;
+            label4.Location = new Point(138, 142);
+            label4.Name = "label4";
+            label4.Size = new Size(67, 15);
+            label4.TabIndex = 6;
+            label4.Text = "Сторона В:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(172, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 29);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Створити";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(177, 255);
+            button1.Name = "button1";
+            button1.Size = new Size(129, 29);
+            button1.TabIndex = 7;
+            button1.Text = "Створити";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // resultLabel
             // 
-            this.resultLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(106, 319);
-            this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(0, 15);
-            this.resultLabel.TabIndex = 8;
-            this.resultLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            resultLabel.Anchor = AnchorStyles.Left;
+            resultLabel.AutoSize = true;
+            resultLabel.Location = new Point(110, 316);
+            resultLabel.Name = "resultLabel";
+            resultLabel.Size = new Size(0, 15);
+            resultLabel.TabIndex = 8;
+            resultLabel.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 361);
-            this.Controls.Add(this.resultLabel);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Name = "Form1";
-            this.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Text = "TriangleBuilder";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(484, 361);
+            Controls.Add(resultLabel);
+            Controls.Add(button1);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(numericUpDown3);
+            Controls.Add(numericUpDown2);
+            Controls.Add(numericUpDown1);
+            MaximumSize = new Size(500, 400);
+            MinimumSize = new Size(500, 400);
+            Name = "Form1";
+            Padding = new Padding(20, 0, 0, 0);
+            Text = "TriangleBuilder";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

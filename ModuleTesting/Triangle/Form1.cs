@@ -26,15 +26,15 @@ namespace TriangleBuilder
             try
             {
                 triangle = new Triangle(sizeA, sizeB, sizeC);
-            } 
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 error = true;
                 resultLabel.ForeColor = Color.Red;
                 resultLabel.Text = ex.Message;
             }
-            
-            if (!error) 
+
+            if (!error)
             {
                 resultLabel.ForeColor = Color.Green;
                 resultLabel.Text = $"Triangle has been created successful, it has type - {triangle?.Type}";
