@@ -21,7 +21,7 @@ def calculate(points, r=2, u=0, dots_amount=10, need_extrapolation=True):
         else:
             new_t_temp = split_interval(point[0], point[0] + t_step, dots_amount)
 
-        new_t = [x for x in new_t_temp if points[0][0] <= x <= points[len(points) - 1][0]]
+        new_t = [x for x in new_t_temp if points[0][0] <= x <= points[-1][0]]
         start_index = new_t_temp.index(new_t[0])
         x_values = x_values_temp[start_index:start_index + len(new_t)]
 
@@ -214,35 +214,41 @@ def get_approximate_points(base_points):
     k = int(m ** (1 / 2)) if m < 100 else int(m ** (1 / 3))
 
     points = []
+    previous_temp_points = []
 
     for k_temp in range(k):
-        previous_y = 0
         temp_points = []
 
-        for i in range(2 ** k_temp - 1):
+        for i in range(2 ** k_temp):
             t_begin = t_min + i * (t_max - t_min) / 2 ** k_temp
             t_end = t_min + (1 + i) * (t_max - t_min) / 2 ** k_temp
 
             y_points = [point[1] for point in base_points if t_begin <= point[0] <= t_end]
 
             if len(y_points) == 0:
-                y = previous_y
+                y = [point[1] for point in previous_temp_points if t_begin >= point[0][0] and t_end <= point[0][1]]
+                y = y[0]
             else:
                 y = sum(y_points)/len(y_points)
-                previous_y = y
 
-            if k-1 == k_temp:
-                points.append([(t_begin+t_end)/2, y])
-            else:
-                temp_points.append([(t_begin+t_end)/2, y])
+            temp_points.append([[t_begin, t_end], y])
 
-    for index, point in enumerate(points):
-        if index == 0:
-            points[index][1] = 1 / 2 * (point[1] + points[index + 1][1])
-        elif 0 < index < len(points) - 1:
-            points[index][1] = 1 / 3 * (points[index - 1][1] + point[1] + points[index + 1][1])
-        else:
-            points[index][1] = 1 / 2 * (points[index - 1][1] + point[1])
+        if len(temp_points) > 3:
+            for index, point in enumerate(temp_points):
+                if index == 0:
+                    temp_points[index][1] = 1 / 2 * (point[1] + temp_points[index + 1][1])
+                elif 0 < index < len(temp_points) - 1:
+                    temp_points[index][1] = 1 / 3 * (temp_points[index - 1][1] + point[1] + temp_points[index + 1][1])
+                else:
+                    temp_points[index][1] = 1 / 2 * (temp_points[index - 1][1] + point[1])
+
+        previous_temp_points = temp_points
+
+        if k - 1 == k_temp:
+            for point in temp_points:
+                y = point[1]
+                x_avg = sum(point[0]) / len(point[0])
+                points.append([x_avg, y])
 
     return points
 
