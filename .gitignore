@@ -8,8 +8,6 @@ obj/
 .vs/
 *.suo
 *.user
-*.sln
-*.csproj
 *.csproj.user
 *.suo
 *.userprefs
