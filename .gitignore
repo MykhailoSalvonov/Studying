@@ -10,6 +10,7 @@ obj/
 *.user
 *.csproj.user
 *.suo
+*.cache
 *.userprefs
 *.pidb
 *.pdb
