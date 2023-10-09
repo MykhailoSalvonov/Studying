@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
+            sizeA = new TextBox();
+            sizeB = new TextBox();
+            sizeC = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            button1 = new Button();
+            createBtn = new Button();
             resultLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             SuspendLayout();
             // 
-            // numericUpDown1
+            // sizeA
             // 
-            numericUpDown1.Location = new Point(214, 79);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 0;
+            sizeA.Location = new Point(214, 79);
+            sizeA.Name = "sizeA";
+            sizeA.Size = new Size(120, 23);
+            sizeA.TabIndex = 0;
+            sizeA.KeyPress += sizeA_KeyPress;
             // 
-            // numericUpDown2
+            // sizeB
             // 
-            numericUpDown2.Location = new Point(214, 134);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(120, 23);
-            numericUpDown2.TabIndex = 1;
+            sizeB.Location = new Point(214, 134);
+            sizeB.Name = "sizeB";
+            sizeB.Size = new Size(120, 23);
+            sizeB.TabIndex = 1;
+            sizeB.KeyPress += sizeB_KeyPress;
             // 
-            // numericUpDown3
+            // sizeC
             // 
-            numericUpDown3.Location = new Point(214, 195);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(120, 23);
-            numericUpDown3.TabIndex = 2;
+            sizeC.Location = new Point(214, 195);
+            sizeC.Name = "sizeC";
+            sizeC.Size = new Size(120, 23);
+            sizeC.TabIndex = 2;
+            sizeC.KeyPress += sizeC_KeyPress;
             // 
             // label1
             // 
@@ -99,15 +99,15 @@
             label4.TabIndex = 6;
             label4.Text = "Сторона В:";
             // 
-            // button1
+            // createBtn
             // 
-            button1.Location = new Point(177, 255);
-            button1.Name = "button1";
-            button1.Size = new Size(129, 29);
-            button1.TabIndex = 7;
-            button1.Text = "Створити";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            createBtn.Location = new Point(177, 255);
+            createBtn.Name = "createBtn";
+            createBtn.Size = new Size(129, 29);
+            createBtn.TabIndex = 7;
+            createBtn.Text = "Створити";
+            createBtn.UseVisualStyleBackColor = true;
+            createBtn.Click += button1_Click;
             // 
             // resultLabel
             // 
@@ -115,8 +115,9 @@
             resultLabel.AutoSize = true;
             resultLabel.Location = new Point(110, 316);
             resultLabel.Name = "resultLabel";
-            resultLabel.Size = new Size(0, 15);
+            resultLabel.Size = new Size(13, 15);
             resultLabel.TabIndex = 8;
+            resultLabel.Text = "  ";
             resultLabel.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form1
@@ -126,37 +127,34 @@
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(484, 361);
             Controls.Add(resultLabel);
-            Controls.Add(button1);
+            Controls.Add(createBtn);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(numericUpDown3);
-            Controls.Add(numericUpDown2);
-            Controls.Add(numericUpDown1);
+            Controls.Add(sizeC);
+            Controls.Add(sizeB);
+            Controls.Add(sizeA);
             MaximumSize = new Size(500, 400);
             MinimumSize = new Size(500, 400);
             Name = "Form1";
             Padding = new Padding(20, 0, 0, 0);
             Text = "TriangleBuilder";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown3;
+        private TextBox sizeA;
+        private TextBox sizeB;
+        private TextBox sizeC;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
-        private Button button1;
+        private Button createBtn;
         private Label resultLabel;
     }
 }
