@@ -9,7 +9,7 @@ class TaskOne(abstract_task.Task):
         plot.show_plot(calculated_data, data)
 
     def getExampleData(self):
-        return examples.task_1_example
+        return examples.task_5_example
 
 
 class TaskTwo(abstract_task.Task):
@@ -54,9 +54,28 @@ class TaskFour(abstract_task.Task):
 
         random_points = funk.generate_random_points(t1, t2, a, b, c, num_points)
 
-        aproximated_points = funk.get_approximate_points(random_points)
-        calculated_data_20 = funk.calculate(aproximated_points, 2, 0, 5, True)
-        plot.plot_multiple_data(random_points, aproximated_points, calculated_data_20)
+        approximated_points = funk.get_approximate_points(random_points)
+        calculated_data_20 = funk.calculate(approximated_points, 2, 0, 5, True)
+        plot.plot_multiple_data(random_points, approximated_points, calculated_data_20)
 
     def getExampleData(self):
         return examples.task_1_example
+
+class TaskFive(abstract_task.Task):
+    def resolv_task(self, data):
+        pure_signal = funk.generate_signal(data)
+        with_noise = funk.add_noise(pure_signal)
+        calculated_data = funk.calculate(with_noise, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
+        plot.plot_multiple_data(pure_signal, with_noise, calculated_data)
+
+    def getExampleData(self):
+        return examples.task_5_example
