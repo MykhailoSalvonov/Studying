@@ -61,21 +61,20 @@ class TaskFour(abstract_task.Task):
     def getExampleData(self):
         return examples.task_1_example
 
+
 class TaskFive(abstract_task.Task):
     def resolv_task(self, data):
         pure_signal = funk.generate_signal(data)
-        with_noise = funk.add_noise(pure_signal)
-        calculated_data = funk.calculate(with_noise, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        calculated_data = funk.calculate(calculated_data, 2, 0, 1, True, True)
-        plot.plot_multiple_data(pure_signal, with_noise, calculated_data)
+        signal_with_noise = funk.add_noise(pure_signal)
+        low_component = funk.calculate(signal_with_noise, 5, 0, 1, True)
+
+        for i in range(5):
+            low_component = funk.calculate(low_component, 5, 0, 1, True)
+
+        high_component = [[point[0], point[1] - noise[1]] for point, noise in zip(low_component, signal_with_noise)]
+
+        plot.show_subplots(low_component, high_component)
+        plot.plot_multiple_data(pure_signal, signal_with_noise, low_component)
 
     def getExampleData(self):
         return examples.task_5_example
