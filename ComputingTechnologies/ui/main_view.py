@@ -72,18 +72,6 @@ def on_combobox_select(event):
 
     clear()
 
-#    if selected_item == 'Практична робота №3':
-#        show_all_splines = tk.Checkbutton(button_frame, text="Усі В-сплайни")
-#        show_all_splines.grid(row=0, column=4, sticky=tk.W + tk.E, padx=10, pady=10)
-#        button_frame.pack(fill='x')
-#    else:
-#        try:
-#            show_all_splines
-#        except NameError:
-#            pass
-#        else:
-#            show_all_splines.destroy()
-
 def show():
     root.title("Графік F(t)")
     root.geometry("600x600")
