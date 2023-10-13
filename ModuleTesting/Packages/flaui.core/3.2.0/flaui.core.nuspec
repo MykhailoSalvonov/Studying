@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>FlaUI.Core</id>
+    <version>3.2.0</version>
+    <authors>Roemer</authors>
+    <owners>Roemer</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>FlaUI.png</icon>
+    <projectUrl>https://github.com/FlaUI/FlaUI</projectUrl>
+    <description>Library with base elements used in the concrete implementations of FlaUI.</description>
+    <copyright>Copyright (c) 2016-2020</copyright>
+    <tags>UI Automation UIA2 UIA3 UIA System.Windows.Automation</tags>
+    <repository url="https://github.com/FlaUI/FlaUI" />
+    <dependencies>
+      <group targetFramework=".NETFramework3.5" />
+      <group targetFramework=".NETFramework4.0" />
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="System.Management" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp3.0">
+        <dependency id="Microsoft.Win32.Registry" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Diagnostics.PerformanceCounter" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Management" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Security.Permissions" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.Win32.Registry" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Diagnostics.PerformanceCounter" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Management" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Security.Permissions" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.Win32.Registry" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Diagnostics.PerformanceCounter" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Management" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Security.Permissions" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Accessibility" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Management" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Windows.Forms" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.IO.Compression" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
