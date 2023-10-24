@@ -9,7 +9,10 @@ class TaskOne(abstract_task.Task):
         plot.show_plot(calculated_data, data)
 
     def getExampleData(self):
-        return examples.task_5_example
+        return examples.task_1_example
+
+    def getTaskName(self):
+        return "Практична робота №1"
 
 
 class TaskTwo(abstract_task.Task):
@@ -29,6 +32,9 @@ class TaskTwo(abstract_task.Task):
     def getExampleData(self):
         return examples.task_2_example
 
+    def getTaskName(self):
+        return "Практична робота №2"
+
 
 class TaskThree(abstract_task.Task):
     def resolv_task(self, data):
@@ -41,6 +47,9 @@ class TaskThree(abstract_task.Task):
 
     def getExampleData(self):
         return examples.task_1_example
+
+    def getTaskName(self):
+        return "Практична робота №3"
 
 
 class TaskFour(abstract_task.Task):
@@ -61,6 +70,9 @@ class TaskFour(abstract_task.Task):
     def getExampleData(self):
         return examples.task_1_example
 
+    def getTaskName(self):
+        return "Практична робота №4"
+
 
 class TaskFive(abstract_task.Task):
     def resolv_task(self, data):
@@ -78,3 +90,6 @@ class TaskFive(abstract_task.Task):
 
     def getExampleData(self):
         return examples.task_5_example
+
+    def getTaskName(self):
+        return "Практична робота №5"

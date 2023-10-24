@@ -9,3 +9,7 @@ class Task(ABC):
     @abstractmethod
     def getExampleData(self):
         pass
+
+    @abstractmethod
+    def getTaskName(self):
+        pass
