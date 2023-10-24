@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>FlaUI.UIA2</id>
+    <version>3.2.0</version>
+    <authors>Roemer</authors>
+    <owners>Roemer</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>FlaUI.png</icon>
+    <projectUrl>https://github.com/FlaUI/FlaUI</projectUrl>
+    <description>Library to use FlaUI with UIA2.</description>
+    <copyright>Copyright (c) 2016-2020</copyright>
+    <tags>UI Automation UIA2 UIA3 UIA System.Windows.Automation</tags>
+    <repository url="https://github.com/FlaUI/FlaUI" />
+    <dependencies>
+      <group targetFramework=".NETFramework3.5">
+        <dependency id="FlaUI.Core" version="3.2.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="FlaUI.Core" version="3.2.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="FlaUI.Core" version="3.2.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.7.1">
+        <dependency id="FlaUI.Core" version="3.2.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.8">
+        <dependency id="FlaUI.Core" version="3.2.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp3.0">
+        <dependency id="FlaUI.Core" version="3.2.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="FlaUI.Core" version="3.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="UIAutomationClient" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5, .NETFramework4.7.1, .NETFramework4.8" />
+      <frameworkAssembly assemblyName="UIAutomationTypes" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5, .NETFramework4.7.1, .NETFramework4.8" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework=".NETFramework3.5, .NETFramework4.0, .NETFramework4.5, .NETFramework4.7.1, .NETFramework4.8" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
