@@ -346,3 +346,31 @@ def get_approximate_points(base_points):
                 points.append([x_avg, y])
 
     return points
+
+
+def calculateddd(points, k):
+    f = []
+    for iteration in range(k):
+        for index, point in enumerate(points):
+            if index >= len(points)-2 or index == 0:
+                continue
+
+            new_t = (points[index][0] + points[index+1][0])/2
+
+            p = points[index][1]
+            p_1 = points[index - 1][1]
+            p1 = points[index + 1][1]
+            p2 = points[index + 2][1]
+
+            p_t = 1/12 * (- p_1 + 7 * p + 7 * p1 - p2)
+
+            if p_t is None:
+                continue
+            else:
+                f.append([new_t, p_t])
+
+        f.extend(points)
+        points = sorted(f, key=lambda point: point[0])
+
+    return points
+

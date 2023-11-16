@@ -98,10 +98,13 @@ class TaskFive(abstract_task.Task):
 
 class TaskSix(abstract_task.Task):
     def resolv_task(self, data):
-        plot.plot_multiple_data(data)
+        calculated_data_21 = funk.calculateddd(data, 5)
+
+        plot.plot_multiple_data(data, calculated_data_21)
+
 
     def getExampleData(self):
-        return sygnal_generator.modulated_signal(1, 10, 1, 100)
+        return sygnal_generator.modulated_signal(1, 10, 1, 80)
 
     def getTaskName(self):
         return "Практична робота №6"
