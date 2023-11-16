@@ -283,27 +283,6 @@ def generate_random_points(t1, t2, a, b, c, num_points):
     return points
 
 
-def generate_signal(base_points):
-    result = []
-
-    for i in range(len(base_points) - 1):
-        start, value = base_points[i]
-        end, _ = base_points[i + 1]
-
-        for j in range(int(start), int(end)):
-            result.append([j, value])
-
-    return result
-
-
-def add_noise(signal_points):
-    errors = np.random.normal(0, 0.2, len(signal_points))
-
-    signal_with_errors = [[point[0], point[1] + error] for point, error in zip(signal_points, errors)]
-
-    return signal_with_errors
-
-
 def low_filter_20(points, current_point, current_index, t_step, need_extrapolation):
     if current_index == 0 or current_index == len(points) - 1:
         if need_extrapolation:

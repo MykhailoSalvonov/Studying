@@ -132,5 +132,34 @@ class OptionWindow2(BaseWindow):
         self.update_idletasks()
         self.canvas.config(scrollregion=self.canvas.bbox("all"))
 
+
+class OptionWindow3(BaseWindow):
+    def create_widgets(self, task):
+        self.point_entries = []
+
+        self.create_canvas_and_frames()
+
+        self.example_button = tk.Button(self.button_frame, text="Приклад",
+                                        command=lambda: self.add_points(task.getExampleData()))
+        self.apply_button = tk.Button(self.button_frame, text="Прийняти", command=lambda: self.applyNew(task.getExampleData()))
+
+        self.apply_button.grid(row=0, column=4, sticky=tk.W + tk.E, padx=10, pady=10)
+
+        self.button_frame.pack(fill='x', pady=20, padx=20)
+        self.point_frame.pack(pady=20, padx=20)
+
+        self.canvas.create_window((0, 0), window=self.main_frame, anchor='nw')
+
+        self.update_idletasks()
+        self.canvas.config(scrollregion=self.canvas.bbox("all"))
+
+    #додати метод який після натискання на кнопку "Приклад" виводить повідомлення що данні завантажені
+    #зробити так що до натискання "Приклад" кнопка прийняти не активна
+
+    def applyNew(self, task_data):
+        global data
+        data = task_data
+        self.destroy()
+
 data = []
 

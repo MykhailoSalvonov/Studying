@@ -15,6 +15,8 @@ def open_options_window(task):
         window.OptionWindow2(root, task)
     elif task.getTaskName() == 'Практична робота №5':
         window.OptionWindow2(root, task)
+    elif task.getTaskName() == 'Практична робота №6':
+        window.OptionWindow3(root, task)
 
 
 def on_combobox_select(event):
@@ -63,6 +65,7 @@ my_task_dict = {
     'Практична робота №3': tasks.TaskThree(),
     'Практична робота №4': tasks.TaskFour(),
     'Практична робота №5': tasks.TaskFive(),
+    'Практична робота №6': tasks.TaskSix(),
 }
 
 option_button = tk.Button(button_frame, text="Опції", command=lambda: open_options_window(task))
