@@ -36,10 +36,18 @@ def show_subplots(zip_data_1, zip_data_2):
 
 
 def plot_multiple_data(*y_data, x_label="X-Axis", y_label="Y-Axis", title="Графік"):
+    first = True
+
     for data in y_data:
-        plt.plot(*zip(*data), marker='o', linestyle='-')
+        if first:
+            plt.plot(*zip(*data), marker='o', linestyle='-')
+            first = False
+        else:
+            plt.plot(*zip(*data), marker='*', linestyle='--')
+
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.title(title)
     plt.legend(range(1, len(y_data) + 1), title="Набір даних")
     plt.show()
+

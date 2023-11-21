@@ -283,24 +283,6 @@ def generate_random_points(t1, t2, a, b, c, num_points):
     return points
 
 
-def low_filter_20(points, current_point, current_index, t_step, need_extrapolation):
-    if current_index == 0 or current_index == len(points) - 1:
-        if need_extrapolation:
-            p_1 = get_extrapolation_point(points, current_point[0] - t_step, 2) if current_index == 0 \
-                else points[current_index - 1][1]
-            p1 = get_extrapolation_point(points, current_point[0] + t_step, 2) if current_index == len(points) - 1 \
-                else points[current_index + 1][1]
-        else:
-            return None
-    else:
-        p_1 = points[current_index - 1][1]
-        p1 = points[current_index + 1][1]
-
-    p = current_point[1]
-
-    return 1 / 8 * (p_1 + 6 * p + p1)
-
-
 def get_approximate_points(base_points):
     t_min = min(base_points, key=lambda point: point[0])[0]
     t_max = max(base_points, key=lambda point: point[0])[0]
@@ -348,9 +330,12 @@ def get_approximate_points(base_points):
     return points
 
 
-def calculateddd(points, k):
+def subdivision(points, k):
     f = []
+
     for iteration in range(k):
+        points = calculate(points, 4, 0, 1, True)
+
         for index, point in enumerate(points):
             if index >= len(points)-2 or index == 0:
                 continue
@@ -358,10 +343,13 @@ def calculateddd(points, k):
             new_t = (points[index][0] + points[index+1][0])/2
 
             p = points[index][1]
+
+            #p_2 = points[index - 2][1]
             p_1 = points[index - 1][1]
             p1 = points[index + 1][1]
             p2 = points[index + 2][1]
 
+            #p_t = 1/24 * ( p_1 + 11*p + 11 * p1 + p2 )
             p_t = 1/12 * (- p_1 + 7 * p + 7 * p1 - p2)
 
             if p_t is None:

@@ -98,7 +98,7 @@ class TaskFive(abstract_task.Task):
 
 class TaskSix(abstract_task.Task):
     def resolv_task(self, data):
-        calculated_data_21 = funk.calculateddd(data, 5)
+        calculated_data_21 = funk.subdivision(data, 1)
 
         plot.plot_multiple_data(data, calculated_data_21)
 
