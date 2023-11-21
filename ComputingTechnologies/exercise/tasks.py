@@ -1,4 +1,5 @@
 from calculation import funk
+from calculation import sygnal_generator
 from ui import plot
 from exercise import abstract_task, examples
 
@@ -76,8 +77,8 @@ class TaskFour(abstract_task.Task):
 
 class TaskFive(abstract_task.Task):
     def resolv_task(self, data):
-        pure_signal = funk.generate_signal(data)
-        signal_with_noise = funk.add_noise(pure_signal)
+        pure_signal = sygnal_generator.digital_signal(data)
+        signal_with_noise = sygnal_generator.add_noise(pure_signal)
         low_component = funk.calculate(signal_with_noise, 5, 0, 1, True)
 
         for i in range(5):
@@ -93,3 +94,17 @@ class TaskFive(abstract_task.Task):
 
     def getTaskName(self):
         return "Практична робота №5"
+
+
+class TaskSix(abstract_task.Task):
+    def resolv_task(self, data):
+        calculated_data_21 = funk.calculateddd(data, 5)
+
+        plot.plot_multiple_data(data, calculated_data_21)
+
+
+    def getExampleData(self):
+        return sygnal_generator.modulated_signal(1, 10, 1, 80)
+
+    def getTaskName(self):
+        return "Практична робота №6"

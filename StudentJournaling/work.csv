@@ -8,3 +8,8 @@ mod1A 5 n 1 y # application -- to make 1 column
 mod2T 5 y y # theoretical questions
 examT 5 y 2 y # to make second column
 examA 5 n 2 y #
+
+
+E->C->F->A->B->D->E  cost: 81
+C->E->D->B->A->F->C  cost: 81
+C->E->D->B->A->F->C  cost: 81

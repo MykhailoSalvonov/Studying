@@ -283,27 +283,6 @@ def generate_random_points(t1, t2, a, b, c, num_points):
     return points
 
 
-def generate_signal(base_points):
-    result = []
-
-    for i in range(len(base_points) - 1):
-        start, value = base_points[i]
-        end, _ = base_points[i + 1]
-
-        for j in range(int(start), int(end)):
-            result.append([j, value])
-
-    return result
-
-
-def add_noise(signal_points):
-    errors = np.random.normal(0, 0.2, len(signal_points))
-
-    signal_with_errors = [[point[0], point[1] + error] for point, error in zip(signal_points, errors)]
-
-    return signal_with_errors
-
-
 def low_filter_20(points, current_point, current_index, t_step, need_extrapolation):
     if current_index == 0 or current_index == len(points) - 1:
         if need_extrapolation:
@@ -367,3 +346,31 @@ def get_approximate_points(base_points):
                 points.append([x_avg, y])
 
     return points
+
+
+def calculateddd(points, k):
+    f = []
+    for iteration in range(k):
+        for index, point in enumerate(points):
+            if index >= len(points)-2 or index == 0:
+                continue
+
+            new_t = (points[index][0] + points[index+1][0])/2
+
+            p = points[index][1]
+            p_1 = points[index - 1][1]
+            p1 = points[index + 1][1]
+            p2 = points[index + 2][1]
+
+            p_t = 1/12 * (- p_1 + 7 * p + 7 * p1 - p2)
+
+            if p_t is None:
+                continue
+            else:
+                f.append([new_t, p_t])
+
+        f.extend(points)
+        points = sorted(f, key=lambda point: point[0])
+
+    return points
+
