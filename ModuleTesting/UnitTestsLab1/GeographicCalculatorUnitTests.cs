@@ -38,11 +38,15 @@ namespace UnitTestsLab6
         [Test]
         public void ContinuityOneDegree()
         {
-            double preaviousValue = 0.0;
-            double currentValue;
+            List<double> resultList = new List<double>();
 
-            currentValue = GeographicCalculator.MeridianLength(latitude, 1);
-            Assert.Greater(currentValue, preaviousValue);
+            for (double i = 1- double.Epsilon * 1000; i < 1; i += double.Epsilon)
+            {
+                resultList.Add(GeographicCalculator.MeridianLength(latitude, 1 - i));
+            }
+
+            List<double> sortedResult = resultList.OrderBy(x => x).ToList();
+            CollectionAssert.AreEqual(sortedResult, resultList);
         }
     }
 }
