@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ModuleTesting
+namespace Lab6
 {
     public class GeographicCalculator
     {
