@@ -37,13 +37,10 @@ def acceptance_probability(cost, new_cost, temperature):
         return math.exp(- (new_cost - cost) / temperature)
 
 
-def temperature(fraction):
-    return max(0.01, min(1, 1 - fraction))
-
 
 # Виклик алгоритму
 state, c, states, costs = simulated_annealing.simulated_annealing(init, cost, random_neighbour, acceptance_probability,
-                                              temperature, maxsteps=100000, debug=False)
+                                            maxsteps=2000, debug=False)
 
 print("Final route:", "->".join(state) + "->" + state[0], " cost:", c)
 plt.plot(costs)
