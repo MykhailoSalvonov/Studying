@@ -30,7 +30,7 @@ namespace UI
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            series1.ChartType = SeriesChartType.Point;
+            series1.ChartType = SeriesChartType.FastLine;
             foreach(var item in Data)
             {
                 series1.Points.AddXY(item.Iteration, item.Distance);

@@ -54,8 +54,8 @@ namespace UI
             int listDist = currentDistance;
             List<StaticticPoint> statictics = new List<StaticticPoint>();
 
-            double temperature = 100.0;
-            double coolingRate = 0.003;
+            double temperature = 50.0;
+            double coolingRate = 0.001;
 
             int iteration = 0;
             while (temperature > 1)
@@ -63,9 +63,6 @@ namespace UI
                 int[] newTour = SwapCities((int[])currentTour.Clone(), random);
                 int newDistance = CalculateTourLength(newTour);
                 
-                temperature *= 1 - coolingRate;
-                iteration++;
-
                 double randomDouble = random.NextDouble();
                 if (newDistance < currentDistance || Math.Exp(-(newDistance- currentDistance) / temperature) > randomDouble)
                 {
@@ -74,6 +71,9 @@ namespace UI
 
                     statictics.Add(new StaticticPoint(iteration, currentDistance, temperature));
                 }
+
+                temperature *= 1 - coolingRate;
+                iteration++;
             }
 
             return statictics;
