@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeographicCalculator.cs" />
     <Compile Include="Stack.cs" />
     <Compile Include="Triangle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
