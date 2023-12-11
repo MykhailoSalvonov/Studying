@@ -6,13 +6,13 @@ namespace UI
     public class SimulatedAnnealing
     {
         static int[,] distances = {
-        { 0, 11, 17, 21, 32, 22 },
-        { 11, 0, 24, 9, 35, 45 },
-        { 17, 24, 0, 42, 19, 12 },
-        { 21, 9, 42, 0, 8, 27 },
-        { 32, 35, 19, 8, 0, 28 },
-        { 22, 45, 12, 27, 28, 0 }
-    };
+            { 0, 11, 17, 21, 32, 22 },
+            { 11, 0, 24, 9, 35, 45 },
+            { 17, 24, 0, 42, 19, 12 },
+            { 21, 9, 42, 0, 8, 27 },
+            { 32, 35, 19, 8, 0, 28 },
+            { 22, 45, 12, 27, 28, 0 }
+        };
 
         static int CalculateTourLength(int[] tour)
         {
@@ -64,7 +64,7 @@ namespace UI
                 int newDistance = CalculateTourLength(newTour);
                 
                 double randomDouble = random.NextDouble();
-                if (newDistance < currentDistance || Math.Exp(-(newDistance- currentDistance) / temperature) > randomDouble)
+                if (newDistance < currentDistance && Math.Exp(-(newDistance - currentDistance) / temperature) > randomDouble)
                 {
                     currentTour = newTour;
                     currentDistance = newDistance;

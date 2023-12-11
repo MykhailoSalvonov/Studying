@@ -1,11 +1,11 @@
 import cv2
 import sys
-import Filters
+import ContrastFilters
+import LowFilters
 
 
-def apply_filter_to_image(image_path):
+def apply_filter(image_path, filter_matrix):
     image = cv2.imread(image_path)
-    filter_matrix = Filters.y4
 
     if image is None:
         raise ValueError(f"Не вдалося завантажити зображення за шляхом {image_path}")
@@ -28,11 +28,19 @@ def apply_filter_to_image(image_path):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 4:
         sys.exit(1)
 
     img_path = sys.argv[1]
-    out_path = apply_filter_to_image(img_path)
+
+    if sys.argv[2] == 'Low':
+        filters = LowFilters.filters
+    else:
+        filters = ContrastFilters.filters
+
+    filter_matrix = filters[sys.argv[3]]
+
+    out_path = apply_filter(img_path, filter_matrix)
 
     print(out_path)
 

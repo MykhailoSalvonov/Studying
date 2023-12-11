@@ -16,7 +16,8 @@ namespace UserInterface
 {
     public partial class MainView : Form
     {
-        public byte[,,] Data { get; set; }
+        public string BaseImagePath { get; set; }
+        public string ModifiedImagePath { get; set; }
 
         public MainView()
         {
@@ -32,14 +33,13 @@ namespace UserInterface
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string filePath = openFileDialog.FileName;
-                    //pictureBox1.Image = System.Drawing.Image.FromFile(filePath);
-                    //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                    BaseImagePath = openFileDialog.FileName;
+                    ModifiedImagePath = openFileDialog.FileName;
+                    pictureBox1.Image = System.Drawing.Image.FromFile(BaseImagePath);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
 
-                    //pictureBox1.Size = pictureBox1.Image.Size;
-                    //Size = new Size(pictureBox1.Image.Width + 40, pictureBox1.Image.Height + 60);
-
-                    filePath = UseFilter(filePath);
+                    pictureBox1.Size = pictureBox1.Image.Size;
+                    Size = new Size(pictureBox1.Image.Width + 40, pictureBox1.Image.Height + 60);
                 }
             }
         }
@@ -49,12 +49,12 @@ namespace UserInterface
             Close();
         }
 
-        private string UseFilter(string filePath)
+        private string UseFilter(string filePath, FilterType filterType, string bSpline)
         {
             string resultPath;
             ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = "C:\\Users\\saliv\\anaconda3\\envs\\desctop_env\\python.exe";
-            start.Arguments = $"\"D:\\Git\\Studying\\Coursework\\PythonScripts\\Filtering.py\" \"{filePath}\"";
+            start.FileName = "C:\\Users\\Mykhailo\\anaconda3\\envs\\desktop_env\\python.exe";
+            start.Arguments = $"\"D:\\Git\\Studying\\Coursework\\PythonScripts\\Filtering.py\" \"{filePath}\" \"{filterType}\" \"{bSpline}\"";
             start.UseShellExecute = false;
             start.RedirectStandardOutput = true;
 
@@ -68,5 +68,47 @@ namespace UserInterface
 
             return resultPath;
         }
+
+        private void x1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Contrast, "y1");
+            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
+        }
+
+        private void x2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Contrast, "y2");
+            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
+        }
+
+        private void x3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Contrast, "y3");
+            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
+        }
+
+        private void x4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Contrast, "y4");
+            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
+        }
+
+        private void x2ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Low, "y2");
+            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
+        }
+
+        private void x3ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Low, "y3");
+            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
+        }
+    }
+
+    internal enum FilterType
+    {
+        Contrast,
+        Low
     }
 }
