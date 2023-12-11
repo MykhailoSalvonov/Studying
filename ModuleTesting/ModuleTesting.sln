@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UiTests", "UiTests\UiTests.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab6", "Lab6\Lab6.csproj", "{DE8D5BB3-3E3C-4B4A-A392-B571935CBCB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackContract", "StackContract\StackContract.csproj", "{1382B69F-0A14-498C-B266-6529E7B43E8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DE8D5BB3-3E3C-4B4A-A392-B571935CBCB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE8D5BB3-3E3C-4B4A-A392-B571935CBCB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE8D5BB3-3E3C-4B4A-A392-B571935CBCB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1382B69F-0A14-498C-B266-6529E7B43E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1382B69F-0A14-498C-B266-6529E7B43E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1382B69F-0A14-498C-B266-6529E7B43E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1382B69F-0A14-498C-B266-6529E7B43E8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
