@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace UserInterface
 {
@@ -49,11 +41,11 @@ namespace UserInterface
             Close();
         }
 
-        private string UseFilter(string filePath, FilterType filterType, string bSpline)
+        private string UseFilter(string filePath, FilterType filterType, FilterLevel bSpline)
         {
             string resultPath;
             ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = "C:\\Users\\Mykhailo\\anaconda3\\envs\\desktop_env\\python.exe";
+            start.FileName = "C:\\Users\\saliv\\anaconda3\\envs\\desctop_env\\python.exe";
             start.Arguments = $"\"D:\\Git\\Studying\\Coursework\\PythonScripts\\Filtering.py\" \"{filePath}\" \"{filterType}\" \"{bSpline}\"";
             start.UseShellExecute = false;
             start.RedirectStandardOutput = true;
@@ -69,46 +61,40 @@ namespace UserInterface
             return resultPath;
         }
 
-        private void x1ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void x2ContrastFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.Contrast, FilterLevel.y2);
+        private void x3ContrastFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.Contrast, FilterLevel.y3);
+        private void x4ContrastFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.Contrast, FilterLevel.y4);
+        private void x5ContrastFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.Contrast, FilterLevel.y5);
+        private void x2LowFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.Low, FilterLevel.y2);
+        private void x3LowFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.Low, FilterLevel.y3);
+        private void x4LowFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.Low, FilterLevel.y4);
+        private void x5LowFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.Low, FilterLevel.y5);
+        private void x2HighFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.High, FilterLevel.y2);
+        private void x3HighFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.High, FilterLevel.y3);
+        private void x4HighFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.High, FilterLevel.y4);
+        private void x5HighFilterMenuItem_Click(object sender, EventArgs e) => ApplyFilter(FilterType.High, FilterLevel.y5);
+
+        private void ApplyFilter(FilterType type, FilterLevel filter)
         {
-            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Contrast, "y1");
+            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.High, filter);
             pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
         }
 
-        private void x2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Contrast, "y2");
-            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
-        }
-
-        private void x3ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Contrast, "y3");
-            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
-        }
-
-        private void x4ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Contrast, "y4");
-            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
-        }
-
-        private void x2ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Low, "y2");
-            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
-        }
-
-        private void x3ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ModifiedImagePath = UseFilter(ModifiedImagePath, FilterType.Low, "y3");
-            pictureBox1.Image = System.Drawing.Image.FromFile(ModifiedImagePath);
-        }
+        
     }
 
     internal enum FilterType
     {
         Contrast,
-        Low
+        Low,
+        High
+    }
+
+    internal enum FilterLevel
+    {
+        y2,
+        y3,
+        y4,
+        y5
     }
 }

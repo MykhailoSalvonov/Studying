@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSplineCore", "BSplineCore\BSplineCore.csproj", "{36CBF56D-1AB8-4ADF-A14B-D73E275C1C2E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PythonScripts", "PythonScripts", "{E21CD143-7ACD-4BBF-B342-371A5296863B}"
+	ProjectSection(SolutionItems) = preProject
+		PythonScripts\ContrastFilters.py = PythonScripts\ContrastFilters.py
+		PythonScripts\Filtering.py = PythonScripts\Filtering.py
+		HighFilters.py = HighFilters.py
+		PythonScripts\LowFilters.py = PythonScripts\LowFilters.py
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
