@@ -69,7 +69,7 @@ namespace UI
                     currentTour = newTour;
                     currentDistance = newDistance;
 
-                    statictics.Add(new StaticticPoint(iteration, currentDistance, temperature));
+                    statictics.Add(new StaticticPoint(iteration, currentDistance));
                 }
 
                 temperature *= 1 - coolingRate;

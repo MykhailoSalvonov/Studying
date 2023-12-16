@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Algorithms;
 
 namespace UI
 {
@@ -14,6 +12,8 @@ namespace UI
         [STAThread]
         static void Main()
         {
+            var t = AntColonyOptimizer.Calculate();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainView());

@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\AntAlgorithm.cs" />
+    <Compile Include="Algorithms\AntsAlgorithm\Ant.cs" />
+    <Compile Include="Algorithms\AntsAlgorithm\AntAlgorithm.cs" />
     <Compile Include="Algorithms\GeneticAlgorithm.cs" />
+    <Compile Include="Algorithms\ITravellingSalesman.cs" />
     <Compile Include="ChartView.cs">
       <SubType>Form</SubType>
     </Compile>

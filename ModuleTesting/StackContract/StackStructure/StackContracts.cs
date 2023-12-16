@@ -34,5 +34,4 @@ namespace StackContract
             return default(int);
         }
     }
-
 }
