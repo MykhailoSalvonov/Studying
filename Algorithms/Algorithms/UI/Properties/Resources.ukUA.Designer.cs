@@ -22,14 +22,14 @@ namespace UI.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class Resources_ukUA {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resources_ukUA() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace UI.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UI.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UI.Properties.Resources.ukUA", typeof(Resources_ukUA).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,16 @@ namespace UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Calculate.
+        ///   Looks up a localized string similar to Застосувати.
+        /// </summary>
+        internal static string apply_btn {
+            get {
+                return ResourceManager.GetString("apply_btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обчислити.
         /// </summary>
         internal static string calculate_text_btn {
             get {
@@ -70,25 +79,34 @@ namespace UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure algorithm.
+        ///   Looks up a localized string similar to Відмінити.
         /// </summary>
-        internal static string configure_algorithm_btn {
+        internal static string cancel_btn {
             get {
-                return ResourceManager.GetString("configure_algorithm_btn", resourceCulture);
+                return ResourceManager.GetString("cancel_btn", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure map.
+        ///   Looks up a localized string similar to Налаштувати алгоритм.
         /// </summary>
-        internal static string configure_map_btn {
+        internal static string configure_algorithm {
             get {
-                return ResourceManager.GetString("configure_map_btn", resourceCulture);
+                return ResourceManager.GetString("configure_algorithm", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This program solves the Traveling Salesman Problem using various optimization algorithms. It analyzes routes between cities to find the most efficient path for minimizing the total travel, showcasing the capabilities of different methods..
+        ///   Looks up a localized string similar to Налаштувати карту .
+        /// </summary>
+        internal static string configure_map {
+            get {
+                return ResourceManager.GetString("configure_map", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ця програма вирішує задачу комівояжера, використовуючи різні алгоритми оптимізації. Вона аналізує маршрути між містами та знаходить найефективніший шлях для мінімізації загальної подорожі, демонструючи можливості різних методів..
         /// </summary>
         internal static string description_text {
             get {
@@ -97,7 +115,7 @@ namespace UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select algorithm:.
+        ///   Looks up a localized string similar to Вибрати алгоритм:.
         /// </summary>
         internal static string select_algorithm {
             get {
@@ -106,20 +124,11 @@ namespace UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show chart.
+        ///   Looks up a localized string similar to Показати графік.
         /// </summary>
-        internal static string show_chart_btn {
+        internal static string show_chart {
             get {
-                return ResourceManager.GetString("show_chart_btn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Travelling salesman problem.
-        /// </summary>
-        internal static string title {
-            get {
-                return ResourceManager.GetString("title", resourceCulture);
+                return ResourceManager.GetString("show_chart", resourceCulture);
             }
         }
     }

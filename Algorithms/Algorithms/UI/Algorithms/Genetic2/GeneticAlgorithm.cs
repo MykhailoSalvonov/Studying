@@ -4,42 +4,17 @@ using System.Linq;
 
 namespace UI.Algorithms.Genetic2
 {
-    public class GeneticAlgorithm
+    public class GeneticAlgorithm : IAlgorithm<GenericAlgorithmParameters>
     {
-        private const int PopulationSize = 100;
-        private const int Generations = 100;
-        private const double MutationRate = 0.01;
-        private static readonly Random random = new Random();
+        private Random Random { get; }
         private int[,] distances;
 
-        public GeneticAlgorithm(int[,] distances)
+        public GenericAlgorithmParameters Parameters { get; }
+
+        public GeneticAlgorithm(GenericAlgorithmParameters parameters)
         {
-            this.distances = distances;
-        }
-
-        public int Calculate()
-        {
-            // Ініціалізація популяції
-            List<int[]> population = InitializePopulation(PopulationSize);
-
-            for (int generation = 0; generation < Generations; generation++)
-            {
-                // Вибір і кросовер
-                List<int[]> newPopulation = new List<int[]>();
-                while (newPopulation.Count < PopulationSize)
-                {
-                    int[] parent1 = Select(population);
-                    int[] parent2 = Select(population);
-                    int[] child = Crossover(parent1, parent2);
-                    newPopulation.Add(child);
-                }
-
-                // Мутація
-                population = newPopulation.Select(Mutate).ToList();
-            }
-
-            // Пошук найкоротшого маршруту
-            return GetRouteLength(population.OrderBy(GetRouteLength).First());
+            Parameters = parameters;
+            Random = new Random();
         }
 
         private List<int[]> InitializePopulation(int size)
@@ -74,7 +49,7 @@ namespace UI.Algorithms.Genetic2
             // Вибрати випадкові маршрути для турніру
             for (int i = 0; i < tournamentSize; i++)
             {
-                int randomIndex = random.Next(population.Count);
+                int randomIndex = Random.Next(population.Count);
                 tournamentParticipants.Add(population[randomIndex]);
             }
 
@@ -85,8 +60,8 @@ namespace UI.Algorithms.Genetic2
         private int[] Crossover(int[] parent1, int[] parent2)
         {
             int[] child = new int[parent1.Length];
-            int start = random.Next(0, parent1.Length);
-            int end = random.Next(start, parent1.Length);
+            int start = Random.Next(0, parent1.Length);
+            int end = Random.Next(start, parent1.Length);
 
             // Копіювання частини з першого батька
             for (int i = start; i < end; i++)
@@ -118,10 +93,10 @@ namespace UI.Algorithms.Genetic2
         {
             int[] mutatedRoute = (int[])route.Clone();
 
-            if (random.NextDouble() < MutationRate)
+            if (Random.NextDouble() < Parameters.MutationRate)
             {
-                int index1 = random.Next(route.Length);
-                int index2 = random.Next(route.Length);
+                int index1 = Random.Next(route.Length);
+                int index2 = Random.Next(route.Length);
 
                 // Обмін двох міст
                 (mutatedRoute[index1], mutatedRoute[index2]) = (mutatedRoute[index2], mutatedRoute[index1]);
@@ -134,9 +109,34 @@ namespace UI.Algorithms.Genetic2
         {
             for (int i = array.Length - 1; i > 0; i--)
             {
-                int j = random.Next(i + 1);
+                int j = Random.Next(i + 1);
                 (array[j], array[i]) = (array[i], array[j]);
             }
+        }
+
+        public void Calculate(int[,] distance)
+        {
+            // Ініціалізація популяції
+            List<int[]> population = InitializePopulation(Parameters.PopulationSize);
+
+            for (int generation = 0; generation < Parameters.Generations; generation++)
+            {
+                // Вибір і кросовер
+                List<int[]> newPopulation = new List<int[]>();
+                while (newPopulation.Count < Parameters.PopulationSize)
+                {
+                    int[] parent1 = Select(population);
+                    int[] parent2 = Select(population);
+                    int[] child = Crossover(parent1, parent2);
+                    newPopulation.Add(child);
+                }
+
+                // Мутація
+                population = newPopulation.Select(Mutate).ToList();
+            }
+
+            // Пошук найкоротшого маршруту
+            var result =  GetRouteLength(population.OrderBy(GetRouteLength).First());
         }
     }
 

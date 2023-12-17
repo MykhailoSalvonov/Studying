@@ -10,13 +10,13 @@ namespace UI.Algorithms.AntsAlgorithm
         /// Alpha - Важливість феромону:
         /// Цей параметр контролює, наскільки важливим є феромонний слід при виборі шляху мурахами (оптимальні значення 1 - 3).
         /// </summary>
-        private const double Alpha = 1.5;
+        private double Alpha { get; }
 
         /// <summary>
         /// Beta - Важливість відстані:
         ///Цей параметр визначає, наскільки важлива інформація про відстань між містами (оптимальні значення 2 - 5).
         /// </summary>
-        private const double Beta = 3.5;
+        private double Beta { get; }
 
         public List<int> VisitedCities { get; set; }
         public double TourLength { get; set; }
@@ -26,10 +26,13 @@ namespace UI.Algorithms.AntsAlgorithm
         private Random Random { get; }
 
 
-        public Ant(int[,] distances, Pheromones pheromones, Random random)
+        public Ant(int[,] distances, Pheromones pheromones, Random random, double alpha, double beta)
         {
             VisitedCities = new List<int>();
             TourLength = 0.0;
+
+            Alpha = alpha;
+            Beta = beta;
 
             Pheromones = pheromones;
             NumberOfCities = distances.GetLength(0);

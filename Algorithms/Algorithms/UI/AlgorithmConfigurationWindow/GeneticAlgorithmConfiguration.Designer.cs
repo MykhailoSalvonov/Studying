@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.populationSizeValue = new System.Windows.Forms.TextBox();
             this.populationSizeLabel = new System.Windows.Forms.Label();
             this.generationsLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.generationsValue = new System.Windows.Forms.TextBox();
             this.mutationRateLabel = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.mutationRateValue = new System.Windows.Forms.TextBox();
             this.applyBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // populationSizeValue
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.populationSizeValue.Location = new System.Drawing.Point(137, 43);
+            this.populationSizeValue.Name = "populationSizeValue";
+            this.populationSizeValue.Size = new System.Drawing.Size(100, 20);
+            this.populationSizeValue.TabIndex = 0;
+            this.populationSizeValue.Text = "100";
             // 
             // populationSizeLabel
             // 
@@ -63,12 +64,13 @@
             this.generationsLabel.TabIndex = 3;
             this.generationsLabel.Text = "Generations";
             // 
-            // textBox2
+            // generationsValue
             // 
-            this.textBox2.Location = new System.Drawing.Point(137, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.generationsValue.Location = new System.Drawing.Point(137, 81);
+            this.generationsValue.Name = "generationsValue";
+            this.generationsValue.Size = new System.Drawing.Size(100, 20);
+            this.generationsValue.TabIndex = 2;
+            this.generationsValue.Text = "100";
             // 
             // mutationRateLabel
             // 
@@ -79,12 +81,13 @@
             this.mutationRateLabel.TabIndex = 5;
             this.mutationRateLabel.Text = "Mutation rate";
             // 
-            // textBox3
+            // mutationRateValue
             // 
-            this.textBox3.Location = new System.Drawing.Point(137, 119);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.mutationRateValue.Location = new System.Drawing.Point(137, 119);
+            this.mutationRateValue.Name = "mutationRateValue";
+            this.mutationRateValue.Size = new System.Drawing.Size(100, 20);
+            this.mutationRateValue.TabIndex = 4;
+            this.mutationRateValue.Text = "0.01";
             // 
             // applyBtn
             // 
@@ -94,6 +97,7 @@
             this.applyBtn.TabIndex = 6;
             this.applyBtn.Text = "Apply";
             this.applyBtn.UseVisualStyleBackColor = true;
+            this.applyBtn.Click += new System.EventHandler(this.applyBtn_Click);
             // 
             // cancelBtn
             // 
@@ -103,6 +107,7 @@
             this.cancelBtn.TabIndex = 7;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // GeneticAlgorithmConfiguration
             // 
@@ -112,11 +117,11 @@
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.applyBtn);
             this.Controls.Add(this.mutationRateLabel);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.mutationRateValue);
             this.Controls.Add(this.generationsLabel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.generationsValue);
             this.Controls.Add(this.populationSizeLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.populationSizeValue);
             this.Name = "GeneticAlgorithmConfiguration";
             this.Text = "GeneticAlgorithmConfiguration";
             this.ResumeLayout(false);
@@ -126,12 +131,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox populationSizeValue;
         private System.Windows.Forms.Label populationSizeLabel;
         private System.Windows.Forms.Label generationsLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox generationsValue;
         private System.Windows.Forms.Label mutationRateLabel;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox mutationRateValue;
         private System.Windows.Forms.Button applyBtn;
         private System.Windows.Forms.Button cancelBtn;
     }

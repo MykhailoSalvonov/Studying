@@ -31,9 +31,9 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.applyBtn = new System.Windows.Forms.Button();
             this.coolingRateLabel = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.coolingRateValue = new System.Windows.Forms.TextBox();
             this.temperatureLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.temperatureValue = new System.Windows.Forms.TextBox();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
@@ -45,6 +45,7 @@
             this.cancelBtn.TabIndex = 13;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // applyBtn
             // 
@@ -54,6 +55,7 @@
             this.applyBtn.TabIndex = 12;
             this.applyBtn.Text = "Apply";
             this.applyBtn.UseVisualStyleBackColor = true;
+            this.applyBtn.Click += new System.EventHandler(this.applyBtn_Click);
             // 
             // coolingRateLabel
             // 
@@ -64,13 +66,13 @@
             this.coolingRateLabel.TabIndex = 11;
             this.coolingRateLabel.Text = "Cooling rate";
             // 
-            // textBox3
+            // coolingRateValue
             // 
-            this.textBox3.Location = new System.Drawing.Point(129, 66);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 10;
-            this.textBox3.Text = "0.001";
+            this.coolingRateValue.Location = new System.Drawing.Point(129, 66);
+            this.coolingRateValue.Name = "coolingRateValue";
+            this.coolingRateValue.Size = new System.Drawing.Size(100, 20);
+            this.coolingRateValue.TabIndex = 10;
+            this.coolingRateValue.Text = "0.001";
             // 
             // temperatureLabel
             // 
@@ -81,13 +83,13 @@
             this.temperatureLabel.TabIndex = 9;
             this.temperatureLabel.Text = "Temperature";
             // 
-            // textBox2
+            // temperatureValue
             // 
-            this.textBox2.Location = new System.Drawing.Point(129, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.Text = "50";
+            this.temperatureValue.Location = new System.Drawing.Point(129, 28);
+            this.temperatureValue.Name = "temperatureValue";
+            this.temperatureValue.Size = new System.Drawing.Size(100, 20);
+            this.temperatureValue.TabIndex = 8;
+            this.temperatureValue.Text = "50";
             // 
             // SimulatedAnnealingConfiguration
             // 
@@ -97,9 +99,9 @@
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.applyBtn);
             this.Controls.Add(this.coolingRateLabel);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.coolingRateValue);
             this.Controls.Add(this.temperatureLabel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.temperatureValue);
             this.Name = "SimulatedAnnealingConfiguration";
             this.Text = "SimulatedAnnealingConfiguration";
             this.ResumeLayout(false);
@@ -112,9 +114,9 @@
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button applyBtn;
         private System.Windows.Forms.Label coolingRateLabel;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox coolingRateValue;
         private System.Windows.Forms.Label temperatureLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox temperatureValue;
         private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

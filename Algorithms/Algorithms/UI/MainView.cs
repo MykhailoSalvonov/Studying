@@ -1,66 +1,115 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using UI.Properties;
+using UI.AlgorithmConfigurationWindow;
+using UI.Algorithms;
+using UI.Algorithms.Annealing;
+using UI.Algorithms.AntsAlgorithm;
+using UI.Algorithms.Genetic2;
 
 namespace UI
 {
     public partial class MainView : Form
     {
+        private Algorithm Algorithm { get; set; }
+        private CalculateAlgorithm Calculation { get; set; }
+        private delegate void CalculateAlgorithm(int[,] distance);
+
+        private static int[,] distances = {
+            { 0, 11, 17, 21, 32, 22 },
+            { 11, 0, 24, 9, 35, 45 },
+            { 17, 24, 0, 42, 19, 12 },
+            { 21, 9, 42, 0, 8, 27 },
+            { 32, 35, 19, 8, 0, 28 },
+            { 22, 45, 12, 27, 28, 0 }
+        };
+
         public MainView()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void calculate_button_Click(object sender, EventArgs e)
         {
-            Data = SimulatedAnnealing.Calculate();
+            if (Calculation != null)
+                Calculation(distances);
+
+            chartBtn.Enabled = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void show_chart_button_Click(object sender, EventArgs e)
         {
-            Series series1 = new Series();
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.ChartType = SeriesChartType.FastLine;
-            foreach(var item in Data)
+            
+        }
+
+        private void algorithmSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (algorithmSelector.SelectedItem.ToString()) 
             {
-                series1.Points.AddXY(item.Iteration, item.Distance);
+                case "Simulated Annealing":
+                    Algorithm = Algorithm.Annealing;
+                    configureAlgorithm.Enabled = true;
+                    break;
+                case "Ant Algorithm":
+                    Algorithm = Algorithm.Ant;
+                    configureAlgorithm.Enabled = true;
+                    break;
+                case "Genetic Algorithm":
+                    Algorithm = Algorithm.Genetic;
+                    configureAlgorithm.Enabled = true;
+                    break;
+                
+                default:
+                    throw new ArgumentException("Cannot find such algorithm.");
+            }
+        }
+
+        private void configureMap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void configureAlgorithm_Click(object sender, EventArgs e)
+        {
+            switch(Algorithm) 
+            { 
+                case Algorithm.Annealing:
+                    var parameters1 = ApplyConfiguration<SimulatedAnnealingConfiguration, AnnealingAlgorithmParameters>(new SimulatedAnnealingConfiguration());
+                    if(parameters1 != null)
+                        Calculation = new SimulatedAnnealing(parameters1.Value).Calculate;
+                    break;
+                case Algorithm.Ant:
+                    var parameters2 = ApplyConfiguration<AntAlgorithmConfiguration, AntsAlgorithmParameters>(new AntAlgorithmConfiguration());
+                    if (parameters2 != null)
+                        Calculation = new AntColonyOptimizer(parameters2.Value).Calculate;
+                    break;
+                case Algorithm.Genetic:
+                    var parameters3 = ApplyConfiguration<GeneticAlgorithmConfiguration, GenericAlgorithmParameters>(new GeneticAlgorithmConfiguration());
+                    if (parameters3 != null)
+                        Calculation = new GeneticAlgorithm(parameters3.Value).Calculate;
+                    break;
+            }
+        }
+
+        private R? ApplyConfiguration<T, R>(T wnd)
+            where T : Form, new() where R : struct
+        {
+            wnd.ShowDialog();
+
+            var algorithmParameters = ((IParameters<R>)wnd).Parameters;
+
+            if (algorithmParameters != null)
+            {
+                calculateBtn.Enabled = true;
             }
 
-            ChartView newForm1 = new ChartView(series1);
-            newForm1.Show();
+            return algorithmParameters;
         }
+    }
 
-        List<StaticticPoint> Data;
-
-        private void UkrMenuItem_Click(object sender, EventArgs e)
-        {
-            description.Text = Resources.ukr_description_text;
-            calculateBtn.Text = "Розрахувати";
-            chartBtn.Text = "Зобразити графік";
-            configureMap.Text = "Налаштування карти";
-            configureAlgorithm.Text = "Налаштування алгоритму";
-            selectAlgorithmLabel.Text = "Оберіть алгоритм: ";
-            Text = "Задача комівояжера";
-        }
-
-        private void EngMenuItem_Click(object sender, EventArgs e)
-        {
-            description.Text = Resources.eng_description_text;
-            calculateBtn.Text = "Calculate";
-            chartBtn.Text = "Show chart";
-            configureMap.Text = "Configure map";
-            configureAlgorithm.Text = "Configure algorithm";
-            selectAlgorithmLabel.Text = "Select algorithm: ";
-            Text = "Travelling salesman problem";
-        }
-
-        private void description_Click(object sender, EventArgs e)
-        {
-
-        }
+    internal enum Algorithm
+    {
+        Ant,
+        Genetic,
+        Annealing
     }
 }

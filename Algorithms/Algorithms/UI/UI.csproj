@@ -47,16 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgorithmConfigurationWindow\IAlgorithmParameters.cs" />
     <Compile Include="AlgorithmConfigurationWindow\SimulatedAnnealingConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AlgorithmConfigurationWindow\SimulatedAnnealingConfiguration.Designer.cs">
       <DependentUpon>SimulatedAnnealingConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Algorithms\Annealing\AnnealingAlgorithmParameters.cs" />
     <Compile Include="Algorithms\AntsAlgorithm\Ant.cs" />
-    <Compile Include="Algorithms\AntsAlgorithm\AntAlgorithm.cs" />
     <Compile Include="Algorithms\AntsAlgorithm\AntColonyOptimizer.cs" />
+    <Compile Include="Algorithms\AntsAlgorithm\AntsAlgorithmParameters.cs" />
     <Compile Include="Algorithms\AntsAlgorithm\Pheromones.cs" />
+    <Compile Include="Algorithms\Genetic2\GenericAlgorithmParameters.cs" />
     <Compile Include="Algorithms\Genetic2\GeneticAlgorithm.cs" />
     <Compile Include="Algorithms\Genetic\GeneticAlg.cs" />
     <Compile Include="AlgorithmConfigurationWindow\AntAlgorithmConfiguration.cs">
@@ -65,6 +68,7 @@
     <Compile Include="AlgorithmConfigurationWindow\AntAlgorithmConfiguration.Designer.cs">
       <DependentUpon>AntAlgorithmConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Algorithms\IAlgorithm.cs" />
     <Compile Include="ChartView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +81,12 @@
     <Compile Include="AlgorithmConfigurationWindow\GeneticAlgorithmConfiguration.Designer.cs">
       <DependentUpon>GeneticAlgorithmConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfigurationMapWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurationMapWindow.Designer.cs">
+      <DependentUpon>ConfigurationMapWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,7 +95,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Algorithms\SimulatedAnnealing.cs" />
+    <Compile Include="Algorithms\Annealing\SimulatedAnnealing.cs" />
+    <Compile Include="Properties\Resources.ukUA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.ukUA.resx</DependentUpon>
+    </Compile>
     <Compile Include="StaticticPoint.cs" />
     <EmbeddedResource Include="AlgorithmConfigurationWindow\AntAlgorithmConfiguration.resx">
       <DependentUpon>AntAlgorithmConfiguration.cs</DependentUpon>
@@ -102,6 +117,10 @@
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ukUA.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.ukUA.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

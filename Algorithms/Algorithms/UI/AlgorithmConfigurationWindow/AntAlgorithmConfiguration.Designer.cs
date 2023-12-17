@@ -30,18 +30,18 @@
         {
             this.applyBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.alphaValue = new System.Windows.Forms.TextBox();
+            this.betaValue = new System.Windows.Forms.TextBox();
+            this.evaporationRateValue = new System.Windows.Forms.TextBox();
+            this.qValue = new System.Windows.Forms.TextBox();
             this.alphaLabel = new System.Windows.Forms.Label();
             this.betaLabel = new System.Windows.Forms.Label();
             this.evaporationRateLabel = new System.Windows.Forms.Label();
             this.qLabel = new System.Windows.Forms.Label();
             this.antsAmountLabel = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.antsAmountValue = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.iterationsValue = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // applyBtn
@@ -52,6 +52,7 @@
             this.applyBtn.TabIndex = 0;
             this.applyBtn.Text = "Apply";
             this.applyBtn.UseVisualStyleBackColor = true;
+            this.applyBtn.Click += new System.EventHandler(this.applyBtn_Click);
             // 
             // cancelBtn
             // 
@@ -61,34 +62,39 @@
             this.cancelBtn.TabIndex = 1;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
-            // textBox1
+            // alphaValue
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.alphaValue.Location = new System.Drawing.Point(150, 29);
+            this.alphaValue.Name = "alphaValue";
+            this.alphaValue.Size = new System.Drawing.Size(100, 20);
+            this.alphaValue.TabIndex = 2;
+            this.alphaValue.Text = "1.5";
             // 
-            // textBox2
+            // betaValue
             // 
-            this.textBox2.Location = new System.Drawing.Point(150, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.betaValue.Location = new System.Drawing.Point(150, 65);
+            this.betaValue.Name = "betaValue";
+            this.betaValue.Size = new System.Drawing.Size(100, 20);
+            this.betaValue.TabIndex = 3;
+            this.betaValue.Text = "3.5";
             // 
-            // textBox3
+            // evaporationRateValue
             // 
-            this.textBox3.Location = new System.Drawing.Point(150, 102);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.evaporationRateValue.Location = new System.Drawing.Point(150, 102);
+            this.evaporationRateValue.Name = "evaporationRateValue";
+            this.evaporationRateValue.Size = new System.Drawing.Size(100, 20);
+            this.evaporationRateValue.TabIndex = 4;
+            this.evaporationRateValue.Text = "0.3";
             // 
-            // textBox4
+            // qValue
             // 
-            this.textBox4.Location = new System.Drawing.Point(150, 138);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 5;
+            this.qValue.Location = new System.Drawing.Point(150, 138);
+            this.qValue.Name = "qValue";
+            this.qValue.Size = new System.Drawing.Size(100, 20);
+            this.qValue.TabIndex = 5;
+            this.qValue.Text = "100";
             // 
             // alphaLabel
             // 
@@ -135,12 +141,13 @@
             this.antsAmountLabel.TabIndex = 11;
             this.antsAmountLabel.Text = "Ants amount";
             // 
-            // textBox5
+            // antsAmountValue
             // 
-            this.textBox5.Location = new System.Drawing.Point(150, 173);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 10;
+            this.antsAmountValue.Location = new System.Drawing.Point(150, 173);
+            this.antsAmountValue.Name = "antsAmountValue";
+            this.antsAmountValue.Size = new System.Drawing.Size(100, 20);
+            this.antsAmountValue.TabIndex = 10;
+            this.antsAmountValue.Text = "20";
             // 
             // label2
             // 
@@ -151,12 +158,13 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Iterations";
             // 
-            // textBox6
+            // iterationsValue
             // 
-            this.textBox6.Location = new System.Drawing.Point(150, 209);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 12;
+            this.iterationsValue.Location = new System.Drawing.Point(150, 209);
+            this.iterationsValue.Name = "iterationsValue";
+            this.iterationsValue.Size = new System.Drawing.Size(100, 20);
+            this.iterationsValue.TabIndex = 12;
+            this.iterationsValue.Text = "50";
             // 
             // AntAlgorithmConfiguration
             // 
@@ -164,17 +172,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 308);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.iterationsValue);
             this.Controls.Add(this.antsAmountLabel);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.antsAmountValue);
             this.Controls.Add(this.qLabel);
             this.Controls.Add(this.evaporationRateLabel);
             this.Controls.Add(this.betaLabel);
             this.Controls.Add(this.alphaLabel);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.qValue);
+            this.Controls.Add(this.evaporationRateValue);
+            this.Controls.Add(this.betaValue);
+            this.Controls.Add(this.alphaValue);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.applyBtn);
             this.Name = "AntAlgorithmConfiguration";
@@ -188,17 +196,17 @@
 
         private System.Windows.Forms.Button applyBtn;
         private System.Windows.Forms.Button cancelBtn;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox alphaValue;
+        private System.Windows.Forms.TextBox betaValue;
+        private System.Windows.Forms.TextBox evaporationRateValue;
+        private System.Windows.Forms.TextBox qValue;
         private System.Windows.Forms.Label alphaLabel;
         private System.Windows.Forms.Label betaLabel;
         private System.Windows.Forms.Label evaporationRateLabel;
         private System.Windows.Forms.Label qLabel;
         private System.Windows.Forms.Label antsAmountLabel;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox antsAmountValue;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox iterationsValue;
     }
 }
