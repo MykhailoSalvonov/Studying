@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="eng.description.text" xml:space="preserve">
-    <value>This program solves the Traveling Salesman Problem using various optimization algorithms. It analyzes routes between cities to find the most efficient path for minimizing the total travel, showcasing the capabilities of different methods.</value>
-  </data>
-  <data name="ukr.description.text" xml:space="preserve">
-    <value>Ця програма вирішує задачу комівояжера, використовуючи різні алгоритми оптимізації. Вона аналізує маршрути між містами та знаходить найефективніший шлях для мінімізації загальної подорожі, демонструючи можливості різних методів.</value>
-  </data>
 </root>

@@ -47,15 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgorithmConfigurationWindow\SimulatedAnnealingConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlgorithmConfigurationWindow\SimulatedAnnealingConfiguration.Designer.cs">
+      <DependentUpon>SimulatedAnnealingConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Algorithms\AntsAlgorithm\Ant.cs" />
     <Compile Include="Algorithms\AntsAlgorithm\AntAlgorithm.cs" />
-    <Compile Include="Algorithms\GeneticAlgorithm.cs" />
-    <Compile Include="Algorithms\ITravellingSalesman.cs" />
+    <Compile Include="Algorithms\AntsAlgorithm\AntColonyOptimizer.cs" />
+    <Compile Include="Algorithms\AntsAlgorithm\Pheromones.cs" />
+    <Compile Include="Algorithms\Genetic2\GeneticAlgorithm.cs" />
+    <Compile Include="Algorithms\Genetic\GeneticAlg.cs" />
+    <Compile Include="AlgorithmConfigurationWindow\AntAlgorithmConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlgorithmConfigurationWindow\AntAlgorithmConfiguration.Designer.cs">
+      <DependentUpon>AntAlgorithmConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChartView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChartView.Designer.cs">
       <DependentUpon>ChartView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlgorithmConfigurationWindow\GeneticAlgorithmConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlgorithmConfigurationWindow\GeneticAlgorithmConfiguration.Designer.cs">
+      <DependentUpon>GeneticAlgorithmConfiguration.cs</DependentUpon>
     </Compile>
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
@@ -67,11 +87,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Algorithms\SimulatedAnnealing.cs" />
     <Compile Include="StaticticPoint.cs" />
+    <EmbeddedResource Include="AlgorithmConfigurationWindow\AntAlgorithmConfiguration.resx">
+      <DependentUpon>AntAlgorithmConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlgorithmConfigurationWindow\GeneticAlgorithmConfiguration.resx">
+      <DependentUpon>GeneticAlgorithmConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlgorithmConfigurationWindow\SimulatedAnnealingConfiguration.resx">
+      <DependentUpon>SimulatedAnnealingConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChartView.resx">
       <DependentUpon>ChartView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,6 +111,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
