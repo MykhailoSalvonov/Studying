@@ -3,6 +3,6 @@
     public interface IAlgorithm<T>
     {
         T Parameters { get; }
-        void Calculate(int[,] distance);
+        int Calculate(int[,] distance);
     }
 }

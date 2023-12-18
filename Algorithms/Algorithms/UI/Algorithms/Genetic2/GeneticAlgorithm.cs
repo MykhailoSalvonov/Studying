@@ -114,9 +114,9 @@ namespace UI.Algorithms.Genetic2
             }
         }
 
-        public void Calculate(int[,] distance)
+        public int Calculate(int[,] distance)
         {
-            // Ініціалізація популяції
+            distances = distance;
             List<int[]> population = InitializePopulation(Parameters.PopulationSize);
 
             for (int generation = 0; generation < Parameters.Generations; generation++)
@@ -137,6 +137,8 @@ namespace UI.Algorithms.Genetic2
 
             // Пошук найкоротшого маршруту
             var result =  GetRouteLength(population.OrderBy(GetRouteLength).First());
+
+            return result;
         }
     }
 

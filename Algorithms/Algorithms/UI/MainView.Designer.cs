@@ -37,7 +37,7 @@ namespace UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.description = new System.Windows.Forms.Label();
             this.calculateBtn = new System.Windows.Forms.Button();
-            this.chartBtn = new System.Windows.Forms.Button();
+            this.resultBtn = new System.Windows.Forms.Button();
             this.configureMap = new System.Windows.Forms.Button();
             this.configureAlgorithm = new System.Windows.Forms.Button();
             this.ukrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +68,7 @@ namespace UI
             this.selectAlgorithmLabel.Name = "selectAlgorithmLabel";
             this.selectAlgorithmLabel.Size = new System.Drawing.Size(127, 20);
             this.selectAlgorithmLabel.TabIndex = 1;
-            this.selectAlgorithmLabel.Text = Resources.select_algorithm;
+            this.selectAlgorithmLabel.Text = "Select algorithm:";
             // 
             // panel1
             // 
@@ -96,7 +96,7 @@ namespace UI
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(420, 39);
             this.description.TabIndex = 0;
-            this.description.Text = Resources.description_text;
+            this.description.Text = resources.GetString("description.Text");
             // 
             // calculateBtn
             // 
@@ -106,21 +106,21 @@ namespace UI
             this.calculateBtn.Name = "calculateBtn";
             this.calculateBtn.Size = new System.Drawing.Size(191, 59);
             this.calculateBtn.TabIndex = 4;
-            this.calculateBtn.Text = Resources.calculate_text_btn;
+            this.calculateBtn.Text = global::UI.Properties.Resources.calculate_text_btn;
             this.calculateBtn.UseVisualStyleBackColor = true;
             this.calculateBtn.Click += new System.EventHandler(this.calculate_button_Click);
             // 
-            // chartBtn
+            // resultBtn
             // 
-            this.chartBtn.Enabled = false;
-            this.chartBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.chartBtn.Location = new System.Drawing.Point(272, 243);
-            this.chartBtn.Name = "chartBtn";
-            this.chartBtn.Size = new System.Drawing.Size(191, 59);
-            this.chartBtn.TabIndex = 5;
-            this.chartBtn.Text = Resources.show_chart_btn;
-            this.chartBtn.UseVisualStyleBackColor = true;
-            this.chartBtn.Click += new System.EventHandler(this.show_chart_button_Click);
+            this.resultBtn.Enabled = false;
+            this.resultBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.resultBtn.Location = new System.Drawing.Point(272, 243);
+            this.resultBtn.Name = "resultBtn";
+            this.resultBtn.Size = new System.Drawing.Size(191, 59);
+            this.resultBtn.TabIndex = 5;
+            this.resultBtn.Text = "Result";
+            this.resultBtn.UseVisualStyleBackColor = true;
+            this.resultBtn.Click += new System.EventHandler(this.result_button_Click);
             // 
             // configureMap
             // 
@@ -129,7 +129,7 @@ namespace UI
             this.configureMap.Name = "configureMap";
             this.configureMap.Size = new System.Drawing.Size(191, 62);
             this.configureMap.TabIndex = 6;
-            this.configureMap.Text = Resources.configure_map_btn;
+            this.configureMap.Text = global::UI.Properties.Resources.configure_map_btn;
             this.configureMap.UseVisualStyleBackColor = true;
             this.configureMap.Click += new System.EventHandler(this.configureMap_Click);
             // 
@@ -141,9 +141,19 @@ namespace UI
             this.configureAlgorithm.Name = "configureAlgorithm";
             this.configureAlgorithm.Size = new System.Drawing.Size(191, 62);
             this.configureAlgorithm.TabIndex = 7;
-            this.configureAlgorithm.Text = Resources.configure_algorithm_btn;
+            this.configureAlgorithm.Text = global::UI.Properties.Resources.configure_algorithm_btn;
             this.configureAlgorithm.UseVisualStyleBackColor = true;
             this.configureAlgorithm.Click += new System.EventHandler(this.configureAlgorithm_Click);
+            // 
+            // ukrMenuItem
+            // 
+            this.ukrMenuItem.Name = "ukrMenuItem";
+            this.ukrMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // engMenuItem
+            // 
+            this.engMenuItem.Name = "engMenuItem";
+            this.engMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // MainView
             // 
@@ -152,18 +162,18 @@ namespace UI
             this.ClientSize = new System.Drawing.Size(486, 414);
             this.Controls.Add(this.configureAlgorithm);
             this.Controls.Add(this.configureMap);
-            this.Controls.Add(this.chartBtn);
+            this.Controls.Add(this.resultBtn);
             this.Controls.Add(this.calculateBtn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "MainView";
-            this.Text = Resources.title;
+            this.Text = "Travelling salesman problem";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
+
         }
 
         #endregion
@@ -173,7 +183,7 @@ namespace UI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button calculateBtn;
-        private System.Windows.Forms.Button chartBtn;
+        private System.Windows.Forms.Button resultBtn;
         private System.Windows.Forms.Label description;
         private System.Windows.Forms.Button configureMap;
         private System.Windows.Forms.Button configureAlgorithm;

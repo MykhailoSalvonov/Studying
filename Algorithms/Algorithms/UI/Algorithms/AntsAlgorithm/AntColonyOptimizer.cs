@@ -17,7 +17,7 @@ namespace UI.Algorithms
             Parameters = parameters;
         }
 
-        public void Calculate(int[,] distance)
+        public int Calculate(int[,] distance)
         {
             Pheromones pheromones = new Pheromones(distance.GetLength(0), 1.0, Parameters.EvaporationRate, Parameters.Q);
             Random random = new Random();
@@ -34,6 +34,8 @@ namespace UI.Algorithms
 
             List<int> bestRoute = new List<int>(bestAnt.VisitedCities); ;
             double bestLength = bestAnt.TourLength;
+
+            return (int)bestLength;
         }
     }
 }

@@ -114,6 +114,9 @@
     <EmbeddedResource Include="ChartView.resx">
       <DependentUpon>ChartView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConfigurationMapWindow.resx">
+      <DependentUpon>ConfigurationMapWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
       <SubType>Designer</SubType>

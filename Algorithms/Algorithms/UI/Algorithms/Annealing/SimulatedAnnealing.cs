@@ -47,7 +47,7 @@ namespace UI.Algorithms.Annealing
             return tour;
         }
 
-        public void Calculate(int[,] distance)
+        public int Calculate(int[,] distance)
         {
             Distances = distance;
             int[] currentTour = GenerateInitialTour();
@@ -72,11 +72,8 @@ namespace UI.Algorithms.Annealing
                 temperature *= 1 - coolingRate;
                 iteration++;
             }
-        }
 
-        void IAlgorithm<AnnealingAlgorithmParameters>.Calculate(int[,] distance)
-        {
-            throw new NotImplementedException();
+            return currentDistance;
         }
     }
 }

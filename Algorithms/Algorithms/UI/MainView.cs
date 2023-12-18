@@ -11,8 +11,9 @@ namespace UI
     public partial class MainView : Form
     {
         private Algorithm Algorithm { get; set; }
+        private int result;
         private CalculateAlgorithm Calculation { get; set; }
-        private delegate void CalculateAlgorithm(int[,] distance);
+        private delegate int CalculateAlgorithm(int[,] distance);
 
         private static int[,] distances = {
             { 0, 11, 17, 21, 32, 22 },
@@ -30,15 +31,13 @@ namespace UI
 
         private void calculate_button_Click(object sender, EventArgs e)
         {
-            if (Calculation != null)
-                Calculation(distances);
-
-            chartBtn.Enabled = true;
+            result = Calculation(distances);
+            resultBtn.Enabled = true;
         }
 
-        private void show_chart_button_Click(object sender, EventArgs e)
+        private void result_button_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show($"The best algorithm ({Algorithm}) solution is: {result}", "Result");
         }
 
         private void algorithmSelector_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,7 +64,13 @@ namespace UI
 
         private void configureMap_Click(object sender, EventArgs e)
         {
+            var wnd = new ConfigurationMapWindow();
 
+            wnd.FillGridWithData(distances);
+            
+            wnd.ShowDialog();
+
+            distances = wnd.ExtractDataFromGrid();
         }
 
         private void configureAlgorithm_Click(object sender, EventArgs e)
