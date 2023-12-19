@@ -1,0 +1,14 @@
+clc
+nmy=0.5;
+nmx=1.5;
+ey=0.3;
+ex=0.5;
+mgl=1.5;
+j=1;
+omega0=sqrt(mgl/j);
+r=0.5;
+ksi=r/(2*sqrt(mgl*j));
+omega=5;
+nu=omega/omega0;
+fit0=0;
+fi0=pi/180;

@@ -1,4 +1,6 @@
-﻿namespace UI
+﻿using UI.Properties;
+
+namespace UI
 {
     partial class MainView
     {
@@ -28,98 +30,165 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
+            this.algorithmSelector = new System.Windows.Forms.ComboBox();
+            this.selectAlgorithmLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.description = new System.Windows.Forms.Label();
+            this.calculateBtn = new System.Windows.Forms.Button();
+            this.resultBtn = new System.Windows.Forms.Button();
+            this.configureMap = new System.Windows.Forms.Button();
+            this.configureAlgorithm = new System.Windows.Forms.Button();
+            this.ukrMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.engMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // algorithmSelector
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Simulated Annealing"});
-            this.comboBox1.Location = new System.Drawing.Point(217, 38);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 21);
-            this.comboBox1.TabIndex = 0;
+            this.algorithmSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.algorithmSelector.FormattingEnabled = true;
+            this.algorithmSelector.Items.AddRange(new object[] {
+            "Simulated Annealing",
+            "Ant Algorithm",
+            "Genetic Algorithm"});
+            this.algorithmSelector.Location = new System.Drawing.Point(195, 31);
+            this.algorithmSelector.Name = "algorithmSelector";
+            this.algorithmSelector.Size = new System.Drawing.Size(220, 28);
+            this.algorithmSelector.TabIndex = 0;
+            this.algorithmSelector.SelectedIndexChanged += new System.EventHandler(this.algorithmSelector_SelectedIndexChanged);
             // 
-            // label1
+            // selectAlgorithmLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(72, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Select algorithm:";
+            this.selectAlgorithmLabel.AutoSize = true;
+            this.selectAlgorithmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.selectAlgorithmLabel.Location = new System.Drawing.Point(32, 39);
+            this.selectAlgorithmLabel.Name = "selectAlgorithmLabel";
+            this.selectAlgorithmLabel.Size = new System.Drawing.Size(127, 20);
+            this.selectAlgorithmLabel.TabIndex = 1;
+            this.selectAlgorithmLabel.Text = "Select algorithm:";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(100, 117);
+            this.panel1.Controls.Add(this.algorithmSelector);
+            this.panel1.Controls.Add(this.selectAlgorithmLabel);
+            this.panel1.Location = new System.Drawing.Point(20, 117);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(523, 100);
+            this.panel1.Size = new System.Drawing.Size(443, 100);
             this.panel1.TabIndex = 2;
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(100, 39);
+            this.panel2.Controls.Add(this.description);
+            this.panel2.Location = new System.Drawing.Point(20, 39);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(523, 72);
+            this.panel2.Size = new System.Drawing.Size(443, 72);
             this.panel2.TabIndex = 3;
             // 
-            // button1
+            // description
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(100, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(191, 59);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Calculate";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.description.AutoEllipsis = true;
+            this.description.AutoSize = true;
+            this.description.Location = new System.Drawing.Point(14, 13);
+            this.description.MaximumSize = new System.Drawing.Size(430, 60);
+            this.description.Name = "description";
+            this.description.Size = new System.Drawing.Size(420, 39);
+            this.description.TabIndex = 0;
+            this.description.Text = resources.GetString("description.Text");
             // 
-            // button2
+            // calculateBtn
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button2.Location = new System.Drawing.Point(432, 243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(191, 59);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Show chart";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.calculateBtn.Enabled = false;
+            this.calculateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.calculateBtn.Location = new System.Drawing.Point(20, 243);
+            this.calculateBtn.Name = "calculateBtn";
+            this.calculateBtn.Size = new System.Drawing.Size(191, 59);
+            this.calculateBtn.TabIndex = 4;
+            this.calculateBtn.Text = global::UI.Properties.Resources.calculate_text_btn;
+            this.calculateBtn.UseVisualStyleBackColor = true;
+            this.calculateBtn.Click += new System.EventHandler(this.calculate_button_Click);
+            // 
+            // resultBtn
+            // 
+            this.resultBtn.Enabled = false;
+            this.resultBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.resultBtn.Location = new System.Drawing.Point(272, 243);
+            this.resultBtn.Name = "resultBtn";
+            this.resultBtn.Size = new System.Drawing.Size(191, 59);
+            this.resultBtn.TabIndex = 5;
+            this.resultBtn.Text = "Result";
+            this.resultBtn.UseVisualStyleBackColor = true;
+            this.resultBtn.Click += new System.EventHandler(this.result_button_Click);
+            // 
+            // configureMap
+            // 
+            this.configureMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.configureMap.Location = new System.Drawing.Point(20, 329);
+            this.configureMap.Name = "configureMap";
+            this.configureMap.Size = new System.Drawing.Size(191, 62);
+            this.configureMap.TabIndex = 6;
+            this.configureMap.Text = global::UI.Properties.Resources.configure_map_btn;
+            this.configureMap.UseVisualStyleBackColor = true;
+            this.configureMap.Click += new System.EventHandler(this.configureMap_Click);
+            // 
+            // configureAlgorithm
+            // 
+            this.configureAlgorithm.Enabled = false;
+            this.configureAlgorithm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.configureAlgorithm.Location = new System.Drawing.Point(272, 329);
+            this.configureAlgorithm.Name = "configureAlgorithm";
+            this.configureAlgorithm.Size = new System.Drawing.Size(191, 62);
+            this.configureAlgorithm.TabIndex = 7;
+            this.configureAlgorithm.Text = global::UI.Properties.Resources.configure_algorithm_btn;
+            this.configureAlgorithm.UseVisualStyleBackColor = true;
+            this.configureAlgorithm.Click += new System.EventHandler(this.configureAlgorithm_Click);
+            // 
+            // ukrMenuItem
+            // 
+            this.ukrMenuItem.Name = "ukrMenuItem";
+            this.ukrMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // engMenuItem
+            // 
+            this.engMenuItem.Name = "engMenuItem";
+            this.engMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(486, 414);
+            this.Controls.Add(this.configureAlgorithm);
+            this.Controls.Add(this.configureMap);
+            this.Controls.Add(this.resultBtn);
+            this.Controls.Add(this.calculateBtn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "MainView";
-            this.Text = "Form1";
+            this.Text = "Travelling salesman problem";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox algorithmSelector;
+        private System.Windows.Forms.Label selectAlgorithmLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button calculateBtn;
+        private System.Windows.Forms.Button resultBtn;
+        private System.Windows.Forms.Label description;
+        private System.Windows.Forms.Button configureMap;
+        private System.Windows.Forms.Button configureAlgorithm;
+        private System.Windows.Forms.ToolStripMenuItem ukrMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem engMenuItem;
     }
 }
 

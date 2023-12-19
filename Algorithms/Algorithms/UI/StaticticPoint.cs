@@ -2,15 +2,13 @@
 {
     public struct StaticticPoint
     {
-        public StaticticPoint(int i, int d, double t) 
+        public StaticticPoint(int i, int d) 
         {
             Iteration = i;
             Distance = d;
-            Temperature = t;
         } 
 
         public int Iteration { get; }
         public int Distance { get; }
-        public double Temperature { get; }
     }
 }

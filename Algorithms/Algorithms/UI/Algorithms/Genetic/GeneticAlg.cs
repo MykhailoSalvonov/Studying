@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace UI.Algorithms
 {
-    public class GeneticAlgorithm
+    public class GeneticAlg
     {
         private const int PopulationSize = 100;
         private const int GenomeSize = 8;
@@ -13,10 +13,11 @@ namespace UI.Algorithms
         private const double CrossoverRate = 0.7;
         private static Random random = new Random();
 
-        public static void Calculate()
+        public static string Calculate()
         {
             List<int> population = InitializePopulation(PopulationSize);
             int generation = 0;
+            string result = "";
 
             while (generation < MaxGenerations)
             {
@@ -44,8 +45,9 @@ namespace UI.Algorithms
                 generation++;
 
                 int bestSolution = population.OrderByDescending(x => FitnessFunction(x)).First();
-                Console.WriteLine($"Generation {generation}: Best Solution = {bestSolution}, Fitness = {FitnessFunction(bestSolution)}");
+                result= $"Generation {generation}: Best Solution = {bestSolution}, Fitness = {FitnessFunction(bestSolution)}";
             }
+            return result;
         }
 
         private static List<int> InitializePopulation(int size)
@@ -55,7 +57,10 @@ namespace UI.Algorithms
 
         private static double FitnessFunction(int x)
         {
-            return Math.Pow(x, 2) - Math.Pow(x - 2, 2) + 3;
+            if (x < 0 || x > 255) 
+                throw new ArgumentOutOfRangeException(nameof(x));
+
+            return Math.Pow((Math.Pow(x, 2) - 3 * x + 2), 2) / 256;
         }
 
         private static int RouletteWheelSelection(List<int> population, List<double> fitnessScores)
@@ -76,6 +81,11 @@ namespace UI.Algorithms
             return population.Last();
         }
 
+        private static int CorrectGenomeRange(int genome)
+        {
+            return Math.Max(0, Math.Min(genome, 255));
+        }
+
         private static (int, int) Crossover(int parent1, int parent2)
         {
             if (random.NextDouble() > CrossoverRate)
@@ -88,7 +98,7 @@ namespace UI.Algorithms
             int child1 = (parent1 & mask) | (parent2 & ~mask);
             int child2 = (parent2 & mask) | (parent1 & ~mask);
 
-            return (child1, child2);
+            return (CorrectGenomeRange(child1), CorrectGenomeRange(child2));
         }
 
         private static int Mutate(int genome)
@@ -101,7 +111,7 @@ namespace UI.Algorithms
                 }
             }
 
-            return genome;
+            return CorrectGenomeRange(genome);
         }
     }
 }
