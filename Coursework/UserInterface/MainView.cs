@@ -45,8 +45,8 @@ namespace UserInterface
         {
             string resultPath;
             ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = "C:\\Users\\saliv\\anaconda3\\envs\\desctop_env\\python.exe";
-            start.Arguments = $"\"D:\\Git\\Studying\\Coursework\\PythonScripts\\Filtering.py\" \"{filePath}\" \"{filterType}\" \"{bSpline}\"";
+            start.FileName = "C:\\Users\\mykhailo\\anaconda3\\envs\\desktop_env\\python.exe";
+            start.Arguments = $"\"D:\\Git\\Studying\\Coursework\\PythonScripts\\ConvolutionFiltering.py\" \"{filePath}\" \"{filterType}\" \"{bSpline}\"";
             start.UseShellExecute = false;
             start.RedirectStandardOutput = true;
 

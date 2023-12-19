@@ -10,8 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PythonScripts", "PythonScripts", "{E21CD143-7ACD-4BBF-B342-371A5296863B}"
 	ProjectSection(SolutionItems) = preProject
 		PythonScripts\ContrastFilters.py = PythonScripts\ContrastFilters.py
-		PythonScripts\Filtering.py = PythonScripts\Filtering.py
-		HighFilters.py = HighFilters.py
+		PythonScripts\ConvolutionFiltering.py = PythonScripts\ConvolutionFiltering.py
+		PythonScripts\HighFilters.py = PythonScripts\HighFilters.py
 		PythonScripts\LowFilters.py = PythonScripts\LowFilters.py
 	EndProjectSection
 EndProject

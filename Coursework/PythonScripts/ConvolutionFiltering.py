@@ -23,13 +23,18 @@ if __name__ == "__main__":
 
     img_path = sys.argv[1]
 
+    #for debugging
+    #print(f"Path to imege: {sys.argv[1]}")
+    #print(f"Filter type: {sys.argv[2]}")
+    #print(f"Filter level: {sys.argv[3]}")
+
     if sys.argv[2] == 'Low':
         filters = LowFilters.filters
     elif sys.argv[2] == 'High':
         filters = HighFilters.filters
     elif sys.argv[2] == 'Contrast':
         filters = ContrastFilters.filters
-    else
+    else:
         raise ValueError(f"Невідомий тип фільтру {sys.argv[2]}")
 
     filter_matrix = filters[sys.argv[3]]
@@ -47,5 +52,4 @@ if __name__ == "__main__":
         output_path = img_path.replace('.jpg', '_filtered.jpg')
     cv2.imwrite(output_path, filtered_image)
 
-    print(out_path)
-
+    print(output_path)

@@ -52,6 +52,9 @@
             this.x5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.filteringTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.liniarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convolutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +63,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.filtersToolStripMenuItem});
+            this.filtersToolStripMenuItem,
+            this.filteringTypeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -199,28 +203,28 @@
             // x2ToolStripMenuItem2
             // 
             this.x2ToolStripMenuItem2.Name = "x2ToolStripMenuItem2";
-            this.x2ToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.x2ToolStripMenuItem2.Size = new System.Drawing.Size(86, 22);
             this.x2ToolStripMenuItem2.Text = "x2";
             this.x2ToolStripMenuItem2.Click += new System.EventHandler(this.x2HighFilterMenuItem_Click);
             // 
             // x3ToolStripMenuItem2
             // 
             this.x3ToolStripMenuItem2.Name = "x3ToolStripMenuItem2";
-            this.x3ToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.x3ToolStripMenuItem2.Size = new System.Drawing.Size(86, 22);
             this.x3ToolStripMenuItem2.Text = "x3";
             this.x3ToolStripMenuItem2.Click += new System.EventHandler(this.x3HighFilterMenuItem_Click);
             // 
             // x4ToolStripMenuItem2
             // 
             this.x4ToolStripMenuItem2.Name = "x4ToolStripMenuItem2";
-            this.x4ToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.x4ToolStripMenuItem2.Size = new System.Drawing.Size(86, 22);
             this.x4ToolStripMenuItem2.Text = "x4";
             this.x4ToolStripMenuItem2.Click += new System.EventHandler(this.x4HighFilterMenuItem_Click);
             // 
             // x5ToolStripMenuItem
             // 
             this.x5ToolStripMenuItem.Name = "x5ToolStripMenuItem";
-            this.x5ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.x5ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.x5ToolStripMenuItem.Text = "x5";
             this.x5ToolStripMenuItem.Click += new System.EventHandler(this.x5HighFilterMenuItem_Click);
             // 
@@ -236,6 +240,27 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // filteringTypeToolStripMenuItem
+            // 
+            this.filteringTypeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.liniarToolStripMenuItem,
+            this.convolutionToolStripMenuItem});
+            this.filteringTypeToolStripMenuItem.Name = "filteringTypeToolStripMenuItem";
+            this.filteringTypeToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.filteringTypeToolStripMenuItem.Text = "Filtering Type";
+            // 
+            // liniarToolStripMenuItem
+            // 
+            this.liniarToolStripMenuItem.Name = "liniarToolStripMenuItem";
+            this.liniarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.liniarToolStripMenuItem.Text = "Liniar";
+            // 
+            // convolutionToolStripMenuItem
+            // 
+            this.convolutionToolStripMenuItem.Name = "convolutionToolStripMenuItem";
+            this.convolutionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.convolutionToolStripMenuItem.Text = "Convolution";
             // 
             // MainView
             // 
@@ -281,6 +306,9 @@
         private System.Windows.Forms.ToolStripMenuItem x3ToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem x4ToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem x5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filteringTypeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem liniarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convolutionToolStripMenuItem;
     }
 }
 
