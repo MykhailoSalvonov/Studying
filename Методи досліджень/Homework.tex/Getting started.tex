@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\section*{2 Formulation of Ensemble Optimal Control Problems}
+
+Consider a particle whose position at time $t$ is denoted with $\xi(t) \in \mathbb{R}^d$. Suppose that this particle is subject to a velocity field $a(x, t)$ over $\mathbb{R}^d$ where $(x, t) \in \mathbb{R}^d \times [0, T]$ for some final time $T > 0$; then the particle’s trajectory is obtained by integrating $\dot{\xi}(t) = a(\xi(t), t)$ assuming an initial condition $\xi(0) = \xi_0$.
+
+Now suppose we have an infinite number of non-interacting particles subject to the same vector field and being distributed with a smooth initial density $\rho|_{t=0} = \rho_0$; then the evolution of this material density is modelled by the following Liouville equation:
+
+\begin{equation}
+    \partial_t \rho(x, t) + \text{div}\big( a(x, t) \rho(x, t) \big) = 0 \tag{2.1}\nonumber
+\end{equation}
+
+with the initial condition at $t = 0$ given by $\rho(x, 0) = \rho_0(x)$. Notice that, in this model,
+the state variable x of the dynamical system defined by a, becomes the space variable
+in the Liouville equation. We call a the drift function.
+We have the same model (2.1) applies if we consider a unique particle subject to the flow $a$ and having the initial condition $\xi_0$ chosen based on the probability density $\rho_0$. In this case, the Liouville equation governs the evolution of the probability density function $\rho$ of the position of the particle in the interval $[0, T]$.
+
+The interpretation of $\rho$ as a probability or material density leads to the requirement that the initial condition for the Liouville model is non-negative $\rho_0 \geq 0$. Moreover, we can normalize the total probability or mass requiring that $\int_{\mathbb{R}^d} \rho_0(x) \, dx = 1$. With these conditions, one can show that the evolution of $\rho$ modeled by the Liouville equation (2.1) has the following properties:
+
+\begin{equation}
+    \rho(x, t) \geq 0, \quad \text{and} \quad \int_{\mathbb{R}^d} \rho(x, t) \, dx = \int_{\mathbb{R}^d} \rho_0(x) \, dx = 1,  \quad t \geq 0. \tag{2.2}\nonumber
+\end{equation}
+
+The Liouville equation allows for modeling the transport of the (material or probability) density also in cases when the drift function is non-smooth ...
+
+The representation of the ensemble of trajectories in terms of an evolving density and the fact that we can manipulate the drift with a control function to achieve certain goals leads to the formulation of the following ensemble optimal control problem:
+
+\begin{align}
+    & \min_{u \in U_{ad}} J(\rho, u) := \int_{0}^{T} \int_{\mathbb{R}^d} \theta(x, t) \rho(x, t) \, dx \, dt + \int_{\mathbb{R}^d} \phi(x) \rho(x, T) \, dx\nonumber
+\end{align}
+\begin{align}
+    + \int_{0}^{T} \kappa(u(t)) \, dt \tag{2.3} \nonumber
+\end{align}
+
+\begin{align}
+    & \text{subject to} \quad \partial_t \rho(x, t) + \text{div}\big( a(x, t; u) \rho(x, t) \big) = 0, \quad \rho(x, 0) = \rho_0(x). \tag{2.4} \nonumber
+\end{align}
+\end{document}
