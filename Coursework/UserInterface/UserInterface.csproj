@@ -79,11 +79,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BSplineCore\BSplineCore.csproj">
-      <Project>{36cbf56d-1ab8-4adf-a14b-d73e275c1c2e}</Project>
-      <Name>BSplineCore</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

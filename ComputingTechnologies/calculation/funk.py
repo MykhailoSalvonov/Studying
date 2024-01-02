@@ -333,7 +333,7 @@ def get_approximate_points(base_points):
 def subdivision(points, k):
     f = []
 
-    for iteration in range(k):
+    for _ in range(k):
         points = calculate(points, 4, 0, 1, True)
 
         for index, point in enumerate(points):

@@ -5,14 +5,20 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{70D0A114-C5B9-429D-BFF7-83854D0A5EE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSplineCore", "BSplineCore\BSplineCore.csproj", "{36CBF56D-1AB8-4ADF-A14B-D73E275C1C2E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PythonScripts", "PythonScripts", "{E21CD143-7ACD-4BBF-B342-371A5296863B}"
 	ProjectSection(SolutionItems) = preProject
-		PythonScripts\ContrastFilters.py = PythonScripts\ContrastFilters.py
-		PythonScripts\ConvolutionFiltering.py = PythonScripts\ConvolutionFiltering.py
-		PythonScripts\HighFilters.py = PythonScripts\HighFilters.py
-		PythonScripts\LowFilters.py = PythonScripts\LowFilters.py
+		PythonScripts\CombinedFiltering.py = PythonScripts\CombinedFiltering.py
+		PythonScripts\SubdivisionFiltering.py = PythonScripts\SubdivisionFiltering.py
+		PythonScripts\SimpleFiltering.py = PythonScripts\SimpleFiltering.py
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Filters", "Filters", "{4FC81260-A269-4B58-A9DA-BA06918114E1}"
+	ProjectSection(SolutionItems) = preProject
+		PythonScripts\Filters\Combined.py = PythonScripts\Filters\Combined.py
+		PythonScripts\Filters\Contrast.py = PythonScripts\Filters\Contrast.py
+		PythonScripts\Filters\HighFrequency.py = PythonScripts\Filters\HighFrequency.py
+		PythonScripts\Filters\LowFrequency.py = PythonScripts\Filters\LowFrequency.py
+		PythonScripts\Filters\Subdivision.py = PythonScripts\Filters\Subdivision.py
 	EndProjectSection
 EndProject
 Global
@@ -25,13 +31,12 @@ Global
 		{70D0A114-C5B9-429D-BFF7-83854D0A5EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70D0A114-C5B9-429D-BFF7-83854D0A5EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70D0A114-C5B9-429D-BFF7-83854D0A5EE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{36CBF56D-1AB8-4ADF-A14B-D73E275C1C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36CBF56D-1AB8-4ADF-A14B-D73E275C1C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36CBF56D-1AB8-4ADF-A14B-D73E275C1C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36CBF56D-1AB8-4ADF-A14B-D73E275C1C2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FC81260-A269-4B58-A9DA-BA06918114E1} = {E21CD143-7ACD-4BBF-B342-371A5296863B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCB4250D-A0E3-4F9E-A859-7BC2FF7C9DFA}
