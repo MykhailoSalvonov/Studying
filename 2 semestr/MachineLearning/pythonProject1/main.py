@@ -18,7 +18,7 @@ y_input = np.array([pair[1] for pair in shuffled_data])
 
 quadratic.minimize_quadratic_function(x_input, y_input)
 data2 = []
-for i in range(-5, 15):
+for i in range(-15, 15):
     x = i
     y = quadratic.function_quadratic(i).numpy().item()
     data2.append([x, y])

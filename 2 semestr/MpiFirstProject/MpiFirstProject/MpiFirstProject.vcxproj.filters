@@ -18,7 +18,7 @@
     <ClCompile Include="HelloMPI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LB4.cpp">
+    <ClCompile Include="Lab2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
