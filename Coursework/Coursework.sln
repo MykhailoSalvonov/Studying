@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PythonScripts", "PythonScri
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Filters", "Filters", "{4FC81260-A269-4B58-A9DA-BA06918114E1}"
 	ProjectSection(SolutionItems) = preProject
+		PythonScripts\Filters\BSpline.py = PythonScripts\Filters\BSpline.py
 		PythonScripts\Filters\Combined.py = PythonScripts\Filters\Combined.py
 		PythonScripts\Filters\Contrast.py = PythonScripts\Filters\Contrast.py
 		PythonScripts\Filters\HighFrequency.py = PythonScripts\Filters\HighFrequency.py

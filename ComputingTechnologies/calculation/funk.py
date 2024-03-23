@@ -349,8 +349,8 @@ def subdivision(points, k):
             p1 = points[index + 1][1]
             p2 = points[index + 2][1]
 
-            #p_t = 1/24 * ( p_1 + 11*p + 11 * p1 + p2 )
-            p_t = 1/12 * (- p_1 + 7 * p + 7 * p1 - p2)
+            #p_t = 1/24 * ( p_1 + 11*p + 11 * p1 + p2 ) #4.0
+            p_t = 1/12 * (- p_1 + 7 * p + 7 * p1 - p2) #2.1
 
             if p_t is None:
                 continue

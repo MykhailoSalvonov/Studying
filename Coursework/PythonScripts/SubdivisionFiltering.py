@@ -3,6 +3,7 @@ import cv2
 import sys
 import SimpleFiltering
 from Filters import Subdivision
+from Filters import BSpline
 
 def apply_subdivision(image, filter_matrix):
     a = SimpleFiltering.apply_filter(image, filter_matrix['A'])
@@ -12,11 +13,13 @@ def apply_subdivision(image, filter_matrix):
 
     n, m, r = a.shape
     scaled_image = np.zeros((2*n, 2*m, r)) 
-
+    
     scaled_image[0::2, 0::2, :] = a
-    scaled_image[1::2, 0::2, :] = b
-    scaled_image[0::2, 1::2, :] = c
+    scaled_image[0::2, 1::2, :] = b
+    scaled_image[1::2, 0::2, :] = c
     scaled_image[1::2, 1::2, :] = d
+    
+    scaled_image = SimpleFiltering.apply_filter(scaled_image, BSpline.y40)
 
     return scaled_image
 

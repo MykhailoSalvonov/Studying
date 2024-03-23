@@ -39,11 +39,11 @@ class TaskTwo(abstract_task.Task):
 
 class TaskThree(abstract_task.Task):
     def resolv_task(self, data):
-        calculated_data_20 = funk.calculate(data, 2, 0, 5, True)
-        calculated_data_21 = funk.calculate(data, 2, 1, 5, True)
-        calculated_data_22 = funk.calculate(data, 2, 2, 5, True)
-        calculated_data_30 = funk.calculate(data, 3, 0, 5, True)
-        plot.plot_multiple_data(data, calculated_data_20, calculated_data_21, calculated_data_22, calculated_data_30,
+        calculated_data_20 = funk.calculate(data, 2, 0, 10, True)
+        calculated_data_21 = funk.calculate(data, 2, 1, 10, True)
+        #calculated_data_22 = funk.calculate(data, 2, 2, 10, True)
+        calculated_data_30 = funk.calculate(data, 3, 0, 10, True)
+        plot.plot_multiple_data(data, calculated_data_20, calculated_data_21,  calculated_data_30,
                                 x_label='t', y_label='P_t')
 
     def getExampleData(self):

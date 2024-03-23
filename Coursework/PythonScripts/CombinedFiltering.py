@@ -14,8 +14,8 @@ def apply_subdivision(image, filter_matrix):
     scaled_image = np.zeros((2*n, 2*m, r)) 
 
     scaled_image[0::2, 0::2, :] = a
-    scaled_image[1::2, 0::2, :] = b
-    scaled_image[0::2, 1::2, :] = c
+    scaled_image[0::2, 1::2, :] = b
+    scaled_image[1::2, 0::2, :] = c
     scaled_image[1::2, 1::2, :] = d
 
     return scaled_image
